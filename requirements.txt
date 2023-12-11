@@ -1,0 +1,6 @@
+flask
+langchain
+openai<1.0.0
+dotenv
+pinecone
+os

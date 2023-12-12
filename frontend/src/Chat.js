@@ -19,11 +19,11 @@ function Chat() {
     fetch('/').then((res) => setData([]));
 
     // mock data
-    // fetch('/data')
-    fetch('/mock')
+    fetch('/data')
+      // fetch('/mock')
       .then((res) => res.json())
       .then((res) => setData(res.data));
-  }, []);
+  }, [setData]);
 
   // SCROLL TO BOTTOM OF CHAT ON STATE UPDATE
   useEffect(() => {
@@ -37,8 +37,8 @@ function Chat() {
   const handleSubmitQuery = (e) => {
     e.preventDefault();
     setIsLoading(true);
-
-    data.push(getUserDataFromQuery(query));
+    const newData = [...data, getUserDataFromQuery(query)];
+    setData(newData);
 
     fetch('/data', {
       method: 'POST',
@@ -52,7 +52,7 @@ function Chat() {
         // console.log(res);
 
         const assistantData = res.data;
-        setData([...data, assistantData]);
+        setData([...newData, assistantData]);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -86,36 +86,19 @@ function Chat() {
   };
 
   return (
-    <div className="chat_wrapper">
+    <div className="chat_wrapper content_wrapper">
+      <div className="header_tagline_container">
+        <h2 className="header_tagline">
+          Learn more about me by asking a question, or pick a suggestion 🤖
+        </h2>
+      </div>
       <div className="chat_history_container">
         <div className="chat_intro_container">
-          <div className="chat_intro_header_container">
-            <div className="chat_intro_header_left">
-              <img
-                src="https://www.gstatic.com/lamda/images/sparkle_resting_v2_1ff6f6a71f2d298b1a31.gif"
-                alt="bard sparkle"
-                className="bard_sparkle"
-              />
-              <h1 className="chat_intro_container--h1">
-                Hello, I'm Kenneth Choi,<br></br>a software engineer.
-              </h1>
-              <h2>
-                Learn more about me by asking a question, or pick a suggestion.
-              </h2>
-            </div>
-            <div className="chat_intro_header_right">
-              <img
-                alt="Kenneth Choi"
-                src={photo}
-                className="header_photo_lrg"
-              />
-            </div>
-          </div>
           <div
             className="chat_intro_cards_container"
             onClick={handleSuggestionClick}
           >
-            <div className="chat_intro_card">
+            <div className="chat_intro_card card">
               <div className="chat_intro_card-header">
                 <h1 id="chat_intro_card-header-01">Understand</h1>
               </div>
@@ -125,7 +108,7 @@ function Chat() {
                 <p className="card_button">What languages does he know</p>
               </div>
             </div>
-            <div className="chat_intro_card">
+            <div className="chat_intro_card card">
               <div className="chat_intro_card-header">
                 <h1 id="chat_intro_card-header-02">Create</h1>
               </div>
@@ -135,7 +118,7 @@ function Chat() {
                 <p className="card_button">Other stuff</p>
               </div>
             </div>
-            <div className="chat_intro_card">
+            <div className="chat_intro_card card">
               <div className="chat_intro_card-header">
                 <h1 id="chat_intro_card-header-03">Explore</h1>
               </div>

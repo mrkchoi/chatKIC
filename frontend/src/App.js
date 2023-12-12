@@ -1,8 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
-import photo from '../src/images/kenneth_choi_photo.jpeg';
-import './App.css';
+
 import Chat from './Chat';
+import About from './About';
+import Contact from './Contact';
+
+import photo from '../src/images/kenneth_choi_photo.jpeg';
+import resume from './files/Kenneth Choi Resume 2023.pdf';
+
+import './App.css';
 
 function App() {
   return (
@@ -25,7 +31,9 @@ function App() {
                   <NavLink to="/about">About</NavLink>
                 </li>
                 <li className="nav_item">
-                  <NavLink to="/resume">Resume</NavLink>
+                  <a href={resume} target="_blank" rel="noreferrer">
+                    Resume
+                  </a>
                 </li>
                 <li className="nav_item">
                   <NavLink to="/contact">Contact</NavLink>
@@ -35,11 +43,29 @@ function App() {
           </div>
         </div>
         <div className="main_wrapper">
+          <div className="chat_intro_header_container">
+            <div className="chat_intro_header_left">
+              <img
+                src="https://www.gstatic.com/lamda/images/sparkle_resting_v2_1ff6f6a71f2d298b1a31.gif"
+                alt="bard sparkle"
+                className="bard_sparkle"
+              />
+              <h1 className="chat_intro_container--h1">
+                Hello, I'm Kenneth Choi,<br></br>a software engineer.
+              </h1>
+            </div>
+            <div className="chat_intro_header_right">
+              <img
+                alt="Kenneth Choi"
+                src={photo}
+                className="header_photo_lrg"
+              />
+            </div>
+          </div>
           <Routes>
             <Route path="/" element={<Chat />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/resume" element={<ResumePage />} />
-            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Chat />} />
           </Routes>
         </div>
@@ -56,13 +82,3 @@ export default App;
 // ];
 
 // You are a friendly and humorous assistant that enthusiastically gives a glowing recommendation for software engineer Kenneth Choi. Max 1 sentence.
-
-const AboutPage = () => {
-  return <div>About Page Test Content....</div>;
-};
-const ResumePage = () => {
-  return <div>Resume Page Test Content....</div>;
-};
-const ContactPage = () => {
-  return <div>Contact Page Test Content....</div>;
-};

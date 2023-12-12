@@ -69,8 +69,7 @@ body {
   padding: 10px;
   border-radius: 10px;
 }
-.nav_item a:hover,
-.header_main a:hover {
+.nav_item a:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
@@ -81,6 +80,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.content_wrapper {
+  max-width: 940px;
+  width: 940px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  flex: 1;
 }
 
 .chat_wrapper {
@@ -100,7 +110,7 @@ body {
 }
 
 .chat_bottom_div {
-  height: 120px;
+  height: 140px;
 }
 
 .input_wrapper {
@@ -151,12 +161,21 @@ button.ui.button {
   height: 35px;
 }
 .chat_intro_header_container {
+  max-width: 940px;
+  width: 940px;
   margin-bottom: 25px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.chat_intro_header_container h2 {
+
+.header_tagline_container {
+  margin-bottom: 20px;
+  width: 940px;
+  max-width: 940px;
+}
+
+.header_tagline {
   font-weight: 100;
 }
 
@@ -167,13 +186,21 @@ button.ui.button {
   justify-content: space-between;
 }
 
-.chat_intro_card {
+.inner_wrapper {
+  max-width: 940px;
+  width: 940px;
+}
+
+.card {
   background-color: white;
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.chat_intro_card {
   /* height: 240px; */
   flex: 1;
   margin-left: 25px;
-  border-radius: 20px;
-  padding: 24px;
 }
 
 .chat_intro_card:first-of-type {
@@ -264,6 +291,11 @@ button.ui.button {
 .chat_message_assistant {
   background-color: white;
 }
+
+.text_content {
+  font-size: 1.1rem;
+  line-height: 24px;
+}
 .chat_message_content {
   font-size: 1.1rem;
   line-height: 24px;
@@ -271,4 +303,63 @@ button.ui.button {
 
 .chat_loading_container {
   padding: 15px 30px;
+}
+
+.about_content {
+  line-height: 2.2rem;
+  padding: 40px 100px;
+}
+
+.about_sign {
+  display: block;
+  width: 100px;
+  transform: rotate(-7deg);
+}
+
+.heart {
+  color: #ea3c53;
+}
+
+.form_button {
+  box-shadow: none;
+  background-color: #585858;
+  color: rgba(0, 0, 0, 0.6) !important;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 15px 25px !important;
+  border-radius: 25px !important;
+}
+
+.form_button:hover {
+  background-color: darkgray;
+}
+
+.form_button:active {
+  background-color: lightgray;
+}
+
+/* .contact_header {
+  text-align: center;
+} */
+
+.divider {
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.contact_link {
+  color: black;
+  font-weight: 400;
+}
+
+.landing-skills__main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.landing-skills__main i {
+  font-size: 4rem;
+  display: inline-block;
+  padding: 2rem;
 }

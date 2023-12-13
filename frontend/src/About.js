@@ -12,7 +12,7 @@ const About = () => {
         </h2>
       </div>
       <div className="card inner_wrapper text_content">
-        <p className="about_content">
+        <div className="about_content">
           <strong>
             I'm a software engineer driven by technical challenges, solving
             puzzles, and mastering new programming languages.
@@ -60,7 +60,7 @@ const About = () => {
               <i className="devicon-d3js-plain"></i>
             </div>
           </section>
-        </p>
+        </div>
       </div>
     </>
   );

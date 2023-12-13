@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import { v4 as uuidv4 } from 'uuid';
 import photo from '../src/images/kenneth_choi_photo.jpeg';
+import { queryMap } from './queryMap';
+
 import './App.css';
 
 function Chat() {
@@ -15,11 +17,8 @@ function Chat() {
     // Focus input on render
     inputRef.current.focus();
 
-    // reset data on render
-    fetch('/').then((res) => setData([]));
-
     // mock data
-    fetch('/data')
+    fetch('/api/data')
       // fetch('/mock')
       .then((res) => res.json())
       .then((res) => setData(res.data));
@@ -32,7 +31,6 @@ function Chat() {
       block: 'end',
     });
   }, [data]);
-  console.log(query);
 
   const handleSubmitQuery = (e) => {
     e.preventDefault();
@@ -40,7 +38,7 @@ function Chat() {
     const newData = [...data, getUserDataFromQuery(query)];
     setData(newData);
 
-    fetch('/data', {
+    fetch('/api/data', {
       method: 'POST',
       body: JSON.stringify({ query }),
       headers: {
@@ -49,10 +47,8 @@ function Chat() {
     })
       .then((res) => res.json())
       .then((res) => {
-        // console.log(res);
-
-        const assistantData = res.data;
-        setData([...newData, assistantData]);
+        const chatHistoryData = res.data;
+        setData([...chatHistoryData]);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -61,8 +57,6 @@ function Chat() {
       });
 
     setQuery('');
-
-    // console.log('submitted');
   };
 
   const handleKeyDown = (e) => {
@@ -81,7 +75,10 @@ function Chat() {
 
   const handleSuggestionClick = (e) => {
     if (e.target.className === 'card_button') {
-      setQuery(e.target.textContent);
+      const query = e.target.textContent;
+      const mappedQuery = queryMap[query];
+      setQuery(mappedQuery);
+      inputRef.current.focus();
     }
   };
 
@@ -104,8 +101,10 @@ function Chat() {
               </div>
               <div className="chat_intro_card-body">
                 <p className="card_button">Who is Kenneth Choi</p>
-                <p className="card_button">Why hire Kenneth Choi</p>
-                <p className="card_button">What languages does he know</p>
+                <p className="card_button">
+                  What programming languages does he know
+                </p>
+                <p className="card_button">Why hire Kenneth</p>
               </div>
             </div>
             <div className="chat_intro_card card">
@@ -113,9 +112,9 @@ function Chat() {
                 <h1 id="chat_intro_card-header-02">Create</h1>
               </div>
               <div className="chat_intro_card-body">
-                <p className="card_button">Past projects</p>
-                <p className="card_button">Work history</p>
-                <p className="card_button">Other stuff</p>
+                <p className="card_button">Describe a past project</p>
+                <p className="card_button">How did he make this</p>
+                <p className="card_button">What are his career goals</p>
               </div>
             </div>
             <div className="chat_intro_card card">
@@ -123,9 +122,9 @@ function Chat() {
                 <h1 id="chat_intro_card-header-03">Explore</h1>
               </div>
               <div className="chat_intro_card-body">
-                <p className="card_button">What has he been doing?</p>
-                <p className="card_button">How to contact</p>
-                <p className="card_button">What about fun</p>
+                <p className="card_button">Strengths and Weaknesses</p>
+                <p className="card_button">Hobbies & fun</p>
+                <p className="card_button">How to get in touch</p>
               </div>
             </div>
           </div>
@@ -220,7 +219,7 @@ function Chat() {
         </div>
         <div className="chat_intro_warning">
           Chat may display inaccurate info, so please double-check its
-          responses.
+          responses.<span className="heart">♥</span>
         </div>
       </div>
     </div>

@@ -21,25 +21,25 @@ data = [
 
 json_chat_history = []
 
-@app.get('/data')
+@app.get('/api/data')
 def get_data():
   return {'data': json_chat_history}
 
-@app.get('/mock')
+@app.get('/api/mock')
 def get_mock_data():
   return {'data': data}
 
 
-@app.post('/data')
+@app.post('/api/data')
 def create_query():
   request_data = request.get_json()
   query_string = request_data['query']  
   main.send_query(query_string, json_chat_history)
   
   print('chat_history: ', json_chat_history)
-  return {'data': json_chat_history[-1]}, 201
+  return {'data': json_chat_history}, 201
 
-@app.get('/')
+@app.get('/api/reset')
 def reset_data():
   main.reset_chat_history()
   json_chat_history.clear()

@@ -1,6 +1,6 @@
 import React from 'react';
-import kc from '../src/images/kc.png';
-import './App.css';
+import kc from '../images/kc.png';
+import '../App.css';
 
 const About = () => {
   return (

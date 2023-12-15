@@ -1,10 +1,36 @@
+@font-face {
+  font-family: 'Afacad';
+  src: url('./fonts/Afacad/static/Afacad-Regular.ttf');
+}
+
 body {
-  background-color: #f3f6fc;
+  background-color: #f4fbf7;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a,
+input,
+button,
+span {
+  font-family: 'Afacad' !important;
 }
 
 .App {
   height: 100vh;
 }
+
+/* .app_wrapper {
+  background-image: url('../src/images/abstract-blue.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+} */
 
 /* HEADER + NAVIGATION */
 .header_wrapper {
@@ -14,7 +40,7 @@ body {
   left: 0;
   z-index: 999;
   width: 100%;
-  background-color: rgba(255, 255, 255, 1);
+  /* background-color: rgba(255, 255, 255, 1); */
   /* border-bottom: 1px solid black; */
 }
 
@@ -26,6 +52,8 @@ body {
 
 .header_left {
   display: flex;
+  background-color: white;
+  border-radius: 50px;
 }
 
 .header_main {
@@ -46,8 +74,8 @@ body {
 }
 
 .header_photo_lrg {
-  height: 150px;
-  width: 150px;
+  height: 200px;
+  width: 200px;
   border-radius: 50%;
 }
 
@@ -55,32 +83,61 @@ body {
   list-style: none;
   display: flex;
   margin: 5px 0;
+  padding: 0 10px;
 }
+
+#home_nav_item {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+#resume_nav_item {
+  background-color: white;
+  border-radius: 50px;
+}
+#resume_nav_item:hover {
+  background-color: rgb(245, 245, 245);
+}
+
+/* .nav_item_logo {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50px;
+  font-weight: bold;
+} */
 
 .nav_item {
   margin-left: 10px;
 }
+
 .nav_item a {
   color: black;
   font-weight: 500;
   /* font-weight: bold; */
-  font-size: 1.3rem;
+  font-size: 1rem;
   display: inline-block;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 50px;
 }
 .nav_item a:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
+.active_nav_item {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.download_icon {
+  width: 20px;
+}
+
 /* MAIN CONTENT */
 .main_wrapper {
-  margin-top: 100px;
-  background-color: #f3f6fc;
+  /* margin-top: 100px; */
+  /* background-color: #f4fbf7;; */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  height: 100%;
 }
 
 .content_wrapper {
@@ -100,6 +157,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  justify-content: center;
   flex: 1;
 }
 
@@ -119,7 +177,7 @@ body {
   bottom: 0;
   width: inherit;
   z-index: 999;
-  background-color: #f3f6fc;
+  /* background-color: #f4fbf7;; */
 }
 
 .input_chat::placeholder {
@@ -153,12 +211,16 @@ button.ui.button {
 .chat_intro_container--h1 {
   font-size: 3rem;
   margin-top: 10px;
+  white-space: pre-line;
+  font-weight: 600;
+  line-height: 3.6rem;
 }
 
 .bard_sparkle,
 .bard_no_sparkle {
   width: 35px;
   height: 35px;
+  display: block;
 }
 .chat_intro_header_container {
   max-width: 940px;
@@ -243,8 +305,10 @@ button.ui.button {
   flex-direction: column;
   flex-flow: wrap;
 }
-.chat_intro_card-body p {
-  background-color: #f3f6fc;
+.chat_intro_card-body p,
+.card_button {
+  background-color: #d3e3fd;
+  color: black;
   border-radius: 25px;
   display: inline-block;
   padding: 15px;
@@ -253,10 +317,34 @@ button.ui.button {
   font-weight: 500;
   cursor: pointer;
   flex: 100%;
+  margin-right: 15px;
+  font-size: 1.4rem;
+  /* width: min-content; */
+  text-align: center;
+  align-content: center;
+}
+
+.card_button:hover {
+  background-color: #e0e1e2;
+}
+
+.input_suggestion_wrapper {
+  text-align: center;
 }
 
 .chat_intro_card-body p:hover {
   background-color: lightgray;
+}
+
+.fadeOut {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s;
+}
+.fadeIn {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s;
 }
 
 .chat_message_container {

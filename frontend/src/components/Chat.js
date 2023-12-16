@@ -13,7 +13,7 @@ function Chat({
   showSuggestions,
   setShowSuggestions,
 }) {
-  const [response, setResponse] = useState('');
+  const [response, setResponse] = useState({});
   const [query, setQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -39,7 +39,7 @@ function Chat({
       .then((res) => {
         const responseData = res.data;
         setIsLoading(false);
-        setResponse(responseData.content);
+        setResponse(responseData);
       })
       .catch((err) => {
         setIsLoading(false);
@@ -100,3 +100,5 @@ function Chat({
 }
 
 export default Chat;
+
+// Arrr, shiver me timbers! It sounds like you have a good attitude and plenty of experience. It's always a challenge to be there for family during a tough time. Ya know, me and me mateys call that being a 'real' pirate! Ye didn't miss a beat during that period, and it sounds like ye had a good eye for the horizon durin' yer sabbatical, getting yerself all caught up with yer coding and such. Aye, if yer ready to get back to what ye love, then me advice is to make sure ye tell yer prospective employer about yer valuable experience and yer commitment to yer family. Ye can't be afraid to show yer true colors!

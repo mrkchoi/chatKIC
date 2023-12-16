@@ -3,6 +3,15 @@ import '../Form.css';
 
 const Contact = () => {
   const [showForm] = useState(false);
+
+  const handleCopyText = (e) => {
+    const isCopyIcon = e.target.className.includes('copyContactIcon');
+    if (isCopyIcon && 'clipboard' in navigator) {
+      const text = e.target.dataset['content'];
+      navigator.clipboard.writeText(text);
+    }
+  };
+
   return (
     <>
       <div className="header_tagline_container">
@@ -62,27 +71,35 @@ const Contact = () => {
               <div className="divider"> </div>
             </>
           )}
-          <div className="contact_header">
+          <div className="contact_header" onClick={handleCopyText}>
             <p>
               <strong>Contact:</strong>
               <br></br>
               <a
+                className="contact_link"
                 href="tel:4082393088"
                 target="_blank"
                 rel="noreferrer"
-                className="contact_link"
               >
                 (408) 239-3088
               </a>
+              <i
+                className="copy outline icon copyContactIcon"
+                data-content="4082393088"
+              ></i>
               <br></br>
               <a
+                className="contact_link"
                 href="mailto:kennethichoi@gmail.com"
                 target="_blank"
                 rel="noreferrer"
-                className="contact_link"
               >
                 kennethichoi@gmail.com
               </a>
+              <i
+                className="copy outline icon copyContactIcon"
+                data-content="kennethichoi@gmail.com"
+              ></i>
               <br></br>
               <a
                 href="https://www.linkedin.com/in/kenneth-choi-42502a35"

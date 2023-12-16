@@ -4,14 +4,21 @@ import { v4 as uuidv4 } from 'uuid';
 import '../App.css';
 
 function ChatResponse({ isLoading, response }) {
+  const wordCount = response?.content?.split(' ');
   const style = {
     fontSize: '3rem',
     marginTop: '10px',
     fontWeight: '600',
     lineHeight: '3.6rem',
   };
+  const styleSmall = {
+    fontSize: '1.8rem',
+    marginTop: '10px',
+    fontWeight: '600',
+    lineHeight: '2.6rem',
+  };
 
-  const showDefault = !isLoading && !response.length;
+  const showDefault = !isLoading && !response?.content?.length;
 
   let component;
   if (showDefault) {
@@ -21,9 +28,10 @@ function ChatResponse({ isLoading, response }) {
       </span>
     );
   } else if (isLoading) {
+    const id1 = uuidv4();
     component = (
       <TypeAnimation
-        key={1}
+        key={id1}
         preRenderFirstString={true}
         sequence={['one sec', 400, 'one sec...', 100]}
         omitDeletionAnimation={true}
@@ -34,16 +42,16 @@ function ChatResponse({ isLoading, response }) {
         style={style}
       />
     );
-  } else if (response.length) {
+  } else if (response?.content?.length) {
     component = (
       <TypeAnimation
-        key={uuidv4()}
-        sequence={[response, 3000]}
+        key={response?.id}
+        sequence={[response?.content, 3000]}
         speed={{ type: 'keyStrokeDelayInMs', value: 10 }}
         omitDeletionAnimation={true}
         deletionSpeed={5}
         cursor={false}
-        style={style}
+        style={wordCount <= 40 ? style : styleSmall}
       />
     );
   }

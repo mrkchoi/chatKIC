@@ -4,7 +4,7 @@ import '../App.css';
 
 const About = () => {
   return (
-    <>
+    <div className="about_wrapper">
       <div className="header_tagline_container">
         <h2 className="header_tagline">
           Currently caffeinated and ready to code.{' '}
@@ -62,7 +62,7 @@ const About = () => {
           </section>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

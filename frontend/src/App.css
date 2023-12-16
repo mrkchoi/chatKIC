@@ -393,6 +393,10 @@ button.ui.button {
   padding: 15px 30px;
 }
 
+.about_wrapper {
+  margin-top: 300px;
+}
+
 .about_content {
   line-height: 2.2rem;
   padding: 40px 100px;
@@ -439,6 +443,15 @@ button.ui.button {
 .contact_link {
   color: black;
   font-weight: 400;
+}
+
+.copyContactIcon {
+  cursor: pointer;
+  color: darkgray;
+  margin-left: 2px !important;
+}
+.copyContactIcon:hover {
+  color: black;
 }
 
 .landing-skills__main {

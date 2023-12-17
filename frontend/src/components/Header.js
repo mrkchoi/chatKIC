@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom';
 import resume from '../files/Kenneth Choi Resume 2023.pdf';
 import download_icon from '../images/download_icon.png';
 
+import '../styles/Header.css';
+
 function Header() {
   return (
     <div className="header_wrapper">

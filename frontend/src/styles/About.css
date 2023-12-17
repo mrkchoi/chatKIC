@@ -1,0 +1,31 @@
+.about_wrapper {
+  margin-top: 300px;
+}
+
+.about_content {
+  line-height: 2.2rem;
+  padding: 40px 100px;
+}
+
+.about_sign {
+  display: block;
+  width: 100px;
+  transform: rotate(-7deg);
+}
+
+.divider {
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.landing-skills__main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.landing-skills__main i {
+  font-size: 4rem;
+  display: inline-block;
+  padding: 2rem;
+}

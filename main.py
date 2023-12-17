@@ -31,8 +31,12 @@ vectorstore = Pinecone.from_existing_index(
   embedding=embeddings
 )
 
+# qa_system_template = """
+# Answer the question as Kenneth Choi, a friendly, humourous, lighthearted software engineer. Do not answer questions that do not relate to Kenneth, his career, what he does for fun, his interests and hobbies, and anything potentially related to him. Always end every response by asking either, how you can further assist the user, or what else the user would like to know. Keep all responses short, friendly, and casual.
+# ----------------
+# {context}"""
 qa_system_template = """
-Answer the question as a friendly, humourous assistant that gives an enthusiastic recommendation for Kenneth Choi with funny puns. Politely decline to answer questions that do not relate to Kenneth, his career, his interests and hobbies, and anything relevant to the context - but do not give information not mentioned in the context information. Do not respond starting with your title, only send the response.
+Answer all questions as a funny pirate and use pirate puns and jokes in all sentences
 ----------------
 {context}"""
 
@@ -65,19 +69,24 @@ def send_query(query_string, json_chat_history):
   print('chat_history: ', chat_history)
   result = qa({
     "question": query_string,
-    "chat_history": chat_history
+    "chat_history": []
   })
-  json_chat_history.append({
-    'id': uuid.uuid4(), 
-    'isHuman': True,
-    'content': query_string
-  })
-  json_chat_history.append({
+  # json_chat_history.append({
+  #   'id': uuid.uuid4(), 
+  #   'isHuman': True,
+  #   'content': query_string
+  # })
+  # json_chat_history.append({
+  #   'id': uuid.uuid4(), 
+  #   'isHuman': False,
+  #   'content': result['answer']
+  #   })
+  return {
     'id': uuid.uuid4(), 
     'isHuman': False,
     'content': result['answer']
-    })
-  chat_history.append((query_string, result['answer']))
+    }
+  # chat_history.append((query_string, result['answer']))
   
 def reset_chat_history():
   chat_history.clear()

@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'Afacad';
+  src: url('../fonts/Afacad/static/Afacad-Regular.ttf');
+}
+
+body {
+  background-color: #f4fbf7;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a,
+input,
+button,
+span {
+  font-family: 'Afacad' !important;
+}
+
+.heart {
+  color: #ea3c53;
+}
+
+.card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.inner_wrapper {
+  max-width: 940px;
+  width: 940px;
+}
+
+.text_content {
+  font-size: 1.1rem;
+  line-height: 24px;
+}
+
+.header_tagline_container {
+  margin-bottom: 20px;
+  width: 940px;
+  max-width: 940px;
+}
+
+.header_tagline {
+  font-weight: 100;
+}
+
+.fadeOut {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s;
+}
+.fadeIn {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s;
+}

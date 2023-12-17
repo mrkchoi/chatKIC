@@ -1,0 +1,36 @@
+.content_wrapper {
+  max-width: 940px;
+  width: 940px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  flex: 1;
+}
+
+.chat_wrapper {
+  max-width: 940px;
+  width: 940px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  justify-content: center;
+  flex: 1;
+}
+
+.chat_intro_header_container {
+  max-width: 940px;
+  width: 940px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bard_sparkle,
+.bard_no_sparkle {
+  width: 35px;
+  height: 35px;
+  display: block;
+}

@@ -29,15 +29,14 @@ def get_data():
 def get_mock_data():
   return {'data': data}
 
-
 @app.post('/api/data')
 def create_query():
   request_data = request.get_json()
   query_string = request_data['query']  
-  main.send_query(query_string, json_chat_history)
+  response = main.send_query(query_string, json_chat_history)
   
   print('chat_history: ', json_chat_history)
-  return {'data': json_chat_history}, 201
+  return {'data': response}, 201
 
 @app.get('/api/reset')
 def reset_data():

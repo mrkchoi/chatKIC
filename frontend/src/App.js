@@ -6,7 +6,8 @@ import About from './components/About';
 import Header from './components/Header';
 import Contact from './components/Contact';
 
-import './App.css';
+import './styles/Global.css';
+import './styles/App.css';
 
 function App() {
   let [showIntro, setShowIntro] = useState(true);

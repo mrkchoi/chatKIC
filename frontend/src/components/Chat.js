@@ -5,7 +5,7 @@ import ChatResponse from './ChatResponse';
 import memoji from '../images/memoji_001.png';
 import ChatInput from './ChatInput';
 
-import '../App.css';
+import '../styles/Chat.css';
 
 function Chat({
   showIntro,
@@ -64,7 +64,7 @@ function Chat({
   };
 
   return (
-    <div className="chat_wrapper content_wrapper">
+    <div className="content_wrapper chat_wrapper">
       <div className="chat_intro_header_container">
         <div className="chat_intro_header_left">
           <img

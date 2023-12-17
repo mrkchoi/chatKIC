@@ -1,14 +1,34 @@
 import React, { useState } from 'react';
-import '../Form.css';
+import '../styles/Contact.css';
 
 const Contact = () => {
-  const [showForm] = useState(false);
+  const [isPhoneCopied, setIsPhoneCopied] = useState(false);
+  const [isEmailCopied, setIsEmailCopied] = useState(false);
 
   const handleCopyText = (e) => {
     const isCopyIcon = e.target.className.includes('copyContactIcon');
     if (isCopyIcon && 'clipboard' in navigator) {
       const text = e.target.dataset['content'];
       navigator.clipboard.writeText(text);
+
+      let copyType = 'phone';
+
+      if (e.target.className.includes('email')) {
+        copyType = 'email';
+      }
+
+      if (copyType === 'phone') {
+        setIsPhoneCopied(true);
+      } else {
+        setIsEmailCopied(true);
+      }
+      setTimeout(() => {
+        if (copyType === 'phone') {
+          setIsPhoneCopied(false);
+        } else {
+          setIsEmailCopied(false);
+        }
+      }, 750);
     }
   };
 
@@ -19,58 +39,6 @@ const Contact = () => {
       </div>
       <div className="card inner_wrapper text_content">
         <div className="contact_wrapper">
-          {showForm && (
-            <>
-              <div className="contact_form">
-                <form
-                  method="post"
-                  action="https://formsubmit.co/0b82732fba573f02a55eee100c29d0c0"
-                >
-                  <div className="fields">
-                    <div className="field half">
-                      <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        placeholder="Name"
-                      />
-                    </div>
-                    <div className="field half">
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        placeholder="Email"
-                      />
-                    </div>
-                    <div className="field">
-                      <textarea
-                        name="message"
-                        id="message"
-                        placeholder="Message"
-                      ></textarea>
-                    </div>
-                    <input
-                      type="text"
-                      name="_honey"
-                      style={{ display: 'none' }}
-                    />
-                    <input
-                      type="hidden"
-                      name="_next"
-                      value={'https://www.kchoi.io'}
-                    />
-                  </div>
-                  <input
-                    type="submit"
-                    value="Send"
-                    className="form_button ui button"
-                  />
-                </form>
-              </div>
-              <div className="divider"> </div>
-            </>
-          )}
           <div className="contact_header" onClick={handleCopyText}>
             <p>
               <strong>Contact:</strong>
@@ -84,9 +52,17 @@ const Contact = () => {
                 (408) 239-3088
               </a>
               <i
-                className="copy outline icon copyContactIcon"
+                className={`copy outline icon copyContactIcon phone ${
+                  isPhoneCopied ? 'hide' : 'show'
+                }`}
                 data-content="4082393088"
               ></i>
+              <span
+                className={`copySuccess ${isPhoneCopied ? 'show' : 'hide'}`}
+              >
+                <i className="check icon copySuccessIcon"></i>
+                <span className="copySuccessText">copied!</span>
+              </span>
               <br></br>
               <a
                 className="contact_link"
@@ -97,9 +73,17 @@ const Contact = () => {
                 kennethichoi@gmail.com
               </a>
               <i
-                className="copy outline icon copyContactIcon"
+                className={`copy outline icon copyContactIcon email ${
+                  isEmailCopied ? 'hide' : 'show'
+                }`}
                 data-content="kennethichoi@gmail.com"
               ></i>
+              <span
+                className={`copySuccess ${isEmailCopied ? 'show' : 'hide'}`}
+              >
+                <i class="check icon copySuccessIcon"></i>
+                <span className="copySuccessText">copied!</span>
+              </span>
               <br></br>
               <a
                 href="https://www.linkedin.com/in/kenneth-choi-42502a35"

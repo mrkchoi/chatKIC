@@ -1,7 +1,8 @@
 import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import { v4 as uuidv4 } from 'uuid';
-import '../App.css';
+
+import '../styles/ChatResponse.css';
 
 function ChatResponse({ isLoading, response }) {
   const wordCount = response?.content?.split(' ');

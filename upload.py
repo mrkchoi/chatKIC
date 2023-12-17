@@ -26,8 +26,7 @@ load_dotenv()
 llm = OpenAI()
 
 pdfs = [
-  "pdfs/Kenneth Choi Resume 2023.pdf",
-  "pdfs/Kenneth Choi - ChatKC 001.pdf"
+  "pdfs/KennyGPT_001.pdf",
 ]
 
 files = []

@@ -1,6 +1,7 @@
 import React from 'react';
 import kc from '../images/kc.png';
-import '../App.css';
+
+import '../styles/About.css';
 
 const About = () => {
   return (

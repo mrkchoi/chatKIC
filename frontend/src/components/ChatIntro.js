@@ -1,7 +1,7 @@
 import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
 
-import '../App.css';
+import '../styles/ChatIntro.css';
 
 function ChatIntro({ setShowIntro, setShowSuggestions }) {
   return (

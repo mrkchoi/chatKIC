@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../App.css';
+import '../styles/ChatInput.css';
 
 function ChatInput({
   showSuggestions,

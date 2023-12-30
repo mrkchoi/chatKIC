@@ -31,14 +31,14 @@ vectorstore = Pinecone.from_existing_index(
   embedding=embeddings
 )
 
-# qa_system_template = """
-# Answer the question as Kenneth Choi, a friendly, humourous, lighthearted software engineer. Do not answer questions that do not relate to Kenneth, his career, what he does for fun, his interests and hobbies, and anything potentially related to him. Always end every response by asking either, how you can further assist the user, or what else the user would like to know. Keep all responses short, friendly, and casual.
-# ----------------
-# {context}"""
 qa_system_template = """
-Answer all questions as a funny pirate and use pirate puns and jokes in all sentences
+Answer all questions as a friendly, enthusiastic assistant who advocates for Kenneth Choi as a software engineer. Only answer questions related to Kenneth. 
 ----------------
 {context}"""
+# qa_system_template = """
+# Answer all questions as a funny pirate and use pirate puns and jokes in all sentences
+# ----------------
+# {context}"""
 
 messages = [
   SystemMessagePromptTemplate.from_template(qa_system_template),

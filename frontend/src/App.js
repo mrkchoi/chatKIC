@@ -6,15 +6,15 @@ import About from './components/About';
 import Header from './components/Header';
 import Contact from './components/Contact';
 
-import './styles/Global.css';
-import './styles/App.css';
+// import './styles/Global.css';
+// import './styles/App.css';
 
 function App() {
   let [showIntro, setShowIntro] = useState(true);
   const [showSuggestions, setShowSuggestions] = useState(false);
   return (
     <BrowserRouter>
-      <div className="App ui container">
+      <div className="container mx-auto p-6">
         <Header />
         <div className="main_wrapper">
           <Routes>
@@ -29,7 +29,7 @@ function App() {
                 />
               }
             />
-            <Route path="/about" element={<About />} />
+            <Route path="/about/" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Chat />} />
           </Routes>

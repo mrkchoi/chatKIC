@@ -1,9 +1,19 @@
 import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
-
+import { useMediaQuery } from '@uidotdev/usehooks';
+import { MediaQuery } from '../utill/MediaQuery';
 import '../styles/ChatIntro.css';
 
 function ChatIntro({ setShowIntro, setShowSuggestions }) {
+  const isMobileDevice = useMediaQuery(MediaQuery.MOBILE);
+
+  const style = {
+    fontSize: isMobileDevice ? '2.4rem' : '3rem',
+    marginTop: '10px',
+    fontWeight: '600',
+    lineHeight: isMobileDevice ? '2.8rem' : '3.6rem',
+  };
+
   return (
     <TypeAnimation
       sequence={[
@@ -22,13 +32,7 @@ function ChatIntro({ setShowIntro, setShowSuggestions }) {
       cursor={false}
       className="chat_message_content"
       deletionSpeed={85}
-      style={{
-        whiteSpace: 'pre-line',
-        fontSize: '3rem',
-        marginTop: '10px',
-        fontWeight: '600',
-        lineHeight: '3.6rem',
-      }}
+      style={style}
     />
   );
 }

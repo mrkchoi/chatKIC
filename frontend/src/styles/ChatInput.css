@@ -7,7 +7,7 @@
   position: fixed;
   bottom: 0;
   width: inherit;
-  z-index: 999;
+  z-index: 9;
   /* background-color: #f4fbf7;; */
 }
 
@@ -62,4 +62,17 @@ button.ui.button {
 
 .card_button:hover {
   background-color: #e0e1e2;
+}
+
+@media screen and (max-width: 450px) {
+  .input_wrapper {
+    padding: 20px 20px;
+    right: 0;
+    left: 0;
+    width: 100vw;
+  }
+
+  .card_button {
+    font-size: 1.2rem;
+  }
 }

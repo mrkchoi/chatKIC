@@ -1,7 +1,8 @@
 import React from 'react';
+import { useMediaQuery } from '@uidotdev/usehooks';
+import { MediaQuery } from '../utill/MediaQuery';
 
 import '../styles/ChatInput.css';
-
 function ChatInput({
   showSuggestions,
   handleSuggestionClick,
@@ -12,6 +13,8 @@ function ChatInput({
   isLoading,
   handleSubmitQuery,
 }) {
+  const isMobileDevice = useMediaQuery(MediaQuery.MOBILE);
+
   return (
     <div className="input_wrapper">
       <div
@@ -20,9 +23,11 @@ function ChatInput({
         }`}
         onClick={handleSuggestionClick}
       >
-        <span className="card_button">Tell me about yourself.</span>
-        <span className="card_button">What languages do you know?</span>
-        <span className="card_button">What do you do for fun?</span>
+        <span className="card_button">Who is Kenneth?</span>
+        <span className="card_button">What languages does he know?</span>
+        {!isMobileDevice && (
+          <span className="card_button">How'd he build this?</span>
+        )}
       </div>
       <div className="ui fluid action input huge">
         <input

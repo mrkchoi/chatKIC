@@ -1,9 +1,12 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import kc from '../images/kc.png';
 
 import '../styles/About.css';
 
 const About = () => {
+  const { about_id } = useParams();
+  console.log('about_id: ', about_id);
   return (
     <div className="about_wrapper">
       <div className="header_tagline_container">

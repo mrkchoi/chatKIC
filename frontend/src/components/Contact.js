@@ -81,7 +81,7 @@ const Contact = () => {
               <span
                 className={`copySuccess ${isEmailCopied ? 'show' : 'hide'}`}
               >
-                <i class="check icon copySuccessIcon"></i>
+                <i className="check icon copySuccessIcon"></i>
                 <span className="copySuccessText">copied!</span>
               </span>
               <br></br>

@@ -26,7 +26,8 @@ load_dotenv()
 llm = OpenAI()
 
 pdfs = [
-  "pdfs/KennyGPT_001.pdf",
+  # "pdfs/KennyGPT_001.pdf",
+  "pdfs/KennyGPT_002.pdf"
 ]
 
 files = []

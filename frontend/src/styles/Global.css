@@ -60,3 +60,11 @@ span {
   visibility: visible;
   transition: opacity 1s;
 }
+
+@media screen and (max-width: 450px) {
+  .inner_wrapper,
+  .header_tagline_container {
+    max-width: inherit;
+    width: inherit;
+  }
+}

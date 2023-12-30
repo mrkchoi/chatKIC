@@ -72,7 +72,7 @@ function Chat({
           <img
             src="https://www.gstatic.com/lamda/images/sparkle_resting_v2_1ff6f6a71f2d298b1a31.gif"
             alt="bard sparkle"
-            className="bard_sparkle"
+            className="bard_sparkle max-w-12"
           />
           {showIntro ? (
             <ChatIntro
@@ -84,7 +84,11 @@ function Chat({
           )}
         </div>
         <div className="chat_right">
-          <img alt="Kenneth Choi" src={memoji} className="max-w-72" />
+          <img
+            alt="Kenneth Choi"
+            src={memoji}
+            className="max-w-36 sm:max-w-72"
+          />
         </div>
       </div>
       <ChatInput

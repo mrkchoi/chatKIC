@@ -40,6 +40,7 @@ function ChatInput({
           disabled={isLoading}
           className="input_chat"
           id="input_chat_id"
+          autoComplete="off"
         />
         <button className="ui button" onClick={handleSubmitQuery}>
           Send

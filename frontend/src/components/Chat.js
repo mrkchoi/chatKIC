@@ -5,7 +5,7 @@ import ChatResponse from './ChatResponse';
 import memoji from '../images/memoji_001.png';
 import ChatInput from './ChatInput';
 
-import '../styles/Chat.css';
+// import '../styles/Chat.css';
 
 function Chat({
   showIntro,
@@ -64,9 +64,11 @@ function Chat({
   };
 
   return (
-    <div className="content_wrapper chat_wrapper">
-      <div className="chat_intro_header_container">
-        <div className="chat_intro_header_left">
+    // Chat Outer Container
+    <div className="container mx-auto h-full sm:h-[70vh]">
+      {/*  */}
+      <div className="chat_inner_container flex flex-col-reverse items-center justify-start sm:items-center sm:justify-between sm:h-full sm:flex-row">
+        <div className="chat_left self-start sm:self-center">
           <img
             src="https://www.gstatic.com/lamda/images/sparkle_resting_v2_1ff6f6a71f2d298b1a31.gif"
             alt="bard sparkle"
@@ -81,8 +83,8 @@ function Chat({
             <ChatResponse isLoading={isLoading} response={response} />
           )}
         </div>
-        <div className="chat_intro_header_right">
-          <img alt="Kenneth Choi" src={memoji} className="header_photo_lrg" />
+        <div className="chat_right">
+          <img alt="Kenneth Choi" src={memoji} className="max-w-72" />
         </div>
       </div>
       <ChatInput

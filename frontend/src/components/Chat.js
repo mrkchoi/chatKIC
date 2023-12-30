@@ -4,6 +4,7 @@ import ChatIntro from './ChatIntro';
 import ChatResponse from './ChatResponse';
 import memoji from '../images/memoji_001.png';
 import ChatInput from './ChatInput';
+import { motion } from 'framer-motion';
 
 // import '../styles/Chat.css';
 
@@ -14,7 +15,7 @@ function Chat({
   setShowSuggestions,
 }) {
   const [response, setResponse] = useState({});
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState('Briefly Introduce Kenny');
   const [isLoading, setIsLoading] = useState(false);
 
   const inputRef = useRef(null);
@@ -43,6 +44,7 @@ function Chat({
       })
       .catch((err) => {
         setIsLoading(false);
+        console.log(err);
       });
 
     setQuery('');
@@ -68,12 +70,16 @@ function Chat({
     <div className="container mx-auto h-full sm:h-[70vh]">
       {/*  */}
       <div className="chat_inner_container flex flex-col-reverse items-center justify-start sm:items-center sm:justify-between sm:h-full sm:flex-row">
-        <div className="chat_left self-start sm:self-center">
-          <img
+        <motion.div
+          className="chat_left self-start sm:self-center"
+          initial={{ opacity: 0, scale: 0.75, y: -200 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+        >
+          {/* <img
             src="https://www.gstatic.com/lamda/images/sparkle_resting_v2_1ff6f6a71f2d298b1a31.gif"
             alt="bard sparkle"
             className="bard_sparkle max-w-12"
-          />
+          /> */}
           {showIntro ? (
             <ChatIntro
               setShowIntro={setShowIntro}
@@ -82,12 +88,14 @@ function Chat({
           ) : (
             <ChatResponse isLoading={isLoading} response={response} />
           )}
-        </div>
+        </motion.div>
         <div className="chat_right">
-          <img
+          <motion.img
             alt="Kenneth Choi"
             src={memoji}
             className="max-w-36 sm:max-w-72"
+            initial={{ opacity: 0, scale: 0.75, y: -200 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
           />
         </div>
       </div>

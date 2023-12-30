@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import kc from '../images/kc.png';
+import { motion } from 'framer-motion';
 
 import '../styles/About.css';
 
@@ -8,7 +9,11 @@ const About = () => {
   const { about_id } = useParams();
   console.log('about_id: ', about_id);
   return (
-    <div className="about_wrapper">
+    <motion.div
+      className="about_wrapper"
+      initial={{ opacity: 0, scale: 0.75, y: -200 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+    >
       <div className="header_tagline_container">
         <h2 className="header_tagline">
           Currently caffeinated and ready to code.{' '}
@@ -66,7 +71,7 @@ const About = () => {
           </section>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

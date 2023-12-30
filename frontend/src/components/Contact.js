@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Contact.css';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
   const [isPhoneCopied, setIsPhoneCopied] = useState(false);
@@ -33,7 +34,10 @@ const Contact = () => {
   };
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.75, y: -200 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+    >
       <div className="header_tagline_container">
         <h2 className="header_tagline">Let's work together 👋</h2>
       </div>
@@ -106,7 +110,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </>
+    </motion.div>
   );
 };
 

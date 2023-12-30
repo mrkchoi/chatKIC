@@ -9,7 +9,7 @@ const MobileNav = ({ setMenuOpen }) => {
   return (
     <AnimatePresence>
       <motion.div
-        className="container pt-20 p-6 fixed top-0 left-0 right-0 bottom-0  z-40 bg-white"
+        className="container pt-20 p-6 fixed top-0 left-0 right-0 bottom-0  z-40 bg-black text-white"
         initial={{ opacity: 0, scale: 0.75, y: -200 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
       >
@@ -20,8 +20,8 @@ const MobileNav = ({ setMenuOpen }) => {
                 to="/"
                 id="home_nav_item"
                 className={({ isActive }) =>
-                  (isActive ? 'bg-btnActive ' : '') +
-                  'px-6 py-4 rounded-full transition-all duration-150 inline-block hover:bg-btnHover'
+                  (isActive ? 'bg-white text-black ' : '') +
+                  'px-6 py-4 rounded-full transition-all duration-150 inline-block hover:bg-white hover:text-black'
                 }
                 onClick={() => setMenuOpen(false)}
               >
@@ -32,8 +32,8 @@ const MobileNav = ({ setMenuOpen }) => {
               <NavLink
                 to="/about"
                 className={({ isActive }) =>
-                  (isActive ? 'bg-btnActive ' : '') +
-                  'px-6 py-4 rounded-full transition-all duration-150 hover:bg-btnHover inline-block sm:hidden'
+                  (isActive ? 'bg-white text-black ' : '') +
+                  'inline-block px-6 py-4 rounded-full transition-all duration-150 hover:bg-white hover:text-black  sm:hidden'
                 }
                 onClick={() => setMenuOpen(false)}
               >
@@ -44,8 +44,8 @@ const MobileNav = ({ setMenuOpen }) => {
               <NavLink
                 to="/contact"
                 className={({ isActive }) =>
-                  (isActive ? 'bg-btnActive  ' : '') +
-                  'px-6 py-4 rounded-full transition-all duration-150  hover:bg-btnHover inline-block sm:hidden'
+                  (isActive ? 'bg-white text-black  ' : '') +
+                  'inline-block px-6 py-4 rounded-full transition-all duration-150  hover:bg-white hover:text-black sm:hidden'
                 }
                 onClick={() => setMenuOpen(false)}
               >
@@ -57,15 +57,15 @@ const MobileNav = ({ setMenuOpen }) => {
                 href={resume}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-block px-6 py-4 bg-white rounded-full hover:bg-btnResumeHover hover:cursor-pointer transition-all duration-150 sm:hidden"
+                className="inline-block px-6 py-4 rounded-full hover:bg-white hover:cursor-pointer hover:text-black transition-all duration-150 sm:hidden"
                 onClick={() => setMenuOpen(false)}
               >
                 Resume{' '}
-                <img
+                {/* <img
                   src={download_icon}
                   alt="download"
-                  className="w-6 inline-block"
-                />
+                  className="w-6 inline-block text-white"
+                /> */}
               </a>
             </li>
           </ul>

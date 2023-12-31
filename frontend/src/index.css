@@ -1,3 +1,54 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+a {
+  position: relative;
+  display: inline-block;
+}
+
+a:hover:after {
+  transform: scaleX(1);
+  transform-origin: center left;
+}
+
+.dark a:hover:after {
+  transform: scaleX(1);
+  transform-origin: center left;
+}
+
+a:active:after {
+  transform: scaleX(1);
+  transform-origin: center left;
+}
+
+.dark a:active:after {
+  transform: scaleX(1);
+  transform-origin: center left;
+}
+
+a:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  margin-top: 0.25em;
+  background: #000;
+  transform-origin: center right;
+  transition: transform 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  transform: scaleX(0);
+}
+
+.dark a:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  margin-top: 0.25em;
+  background: #fff;
+  transform-origin: center right;
+  transition: transform 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  transform: scaleX(0);
+}

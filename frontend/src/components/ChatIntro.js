@@ -10,7 +10,7 @@ function ChatIntro({ setShowIntro, setShowSuggestions }) {
   const style = {
     fontSize: isMobileDevice ? '1.6rem' : '2.4rem',
     marginTop: '10px',
-    fontWeight: '600',
+    // fontWeight: '600',
     lineHeight: isMobileDevice ? '2.0rem' : '3.0rem',
     whiteSpace: 'pre-line',
   };
@@ -22,7 +22,7 @@ function ChatIntro({ setShowIntro, setShowSuggestions }) {
         400,
         "Hello, I'm Kenny Choi,\n a software engineer.",
         1200,
-        'Learn more about me by asking a question, or pick a suggestion 👇',
+        'Learn more about me by typing a question below 👇',
         500,
         () => setShowSuggestions(true),
         500,

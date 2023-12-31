@@ -2,7 +2,6 @@ import React from 'react';
 import { useMediaQuery } from '@uidotdev/usehooks';
 import { MediaQuery } from '../utill/MediaQuery';
 import sparkle_gif from '../images/sparkle_resting_v2_1ff6f6a71f2d298b1a31.gif';
-
 // import '../styles/ChatInput.css';
 function ChatInput({
   showSuggestions,
@@ -14,11 +13,12 @@ function ChatInput({
   isLoading,
   handleSubmitQuery,
 }) {
-  const isMobileDevice = useMediaQuery(MediaQuery.MOBILE);
+  // const isMobileDevice = useMediaQuery(MediaQuery.MOBILE);
 
   return (
-    <div className="input_parent_container fixed flex flex-col bottom-0 left-[50%] translate-x-[-50%] z-30 w-[inherit] container p-6 items-center ">
-      <div
+    // <div className="input_parent_container fixed flex flex-col bottom-0 left-[50%] translate-x-[-50%] z-30 w-[inherit] container p-6 items-center ">
+    <div className="input_parent_container flex flex-col z-30 w-[inherit] container  items-center sm:p-6">
+      {/* <div
         className={`input_suggestion_wrapper ${
           showSuggestions ? 'fadeIn' : 'fadeOut'
         }`}
@@ -29,30 +29,29 @@ function ChatInput({
         {!isMobileDevice && (
           <span className="card_button">How'd he build this?</span>
         )}
-      </div>
+      </div> */}
       <div className="flex flex-row items-center w-[inherit]">
         <input
           type="text"
           value={query}
-          placeholder="Ask Kenny..."
+          placeholder="Ask about Kenny..."
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleKeyDown}
           ref={inputRef}
           disabled={isLoading}
-          className="p-2 rounded-full flex-1 border w-[100%] sm:p-4 dark: text-black"
+          className="p-2 rounded-full flex-1 border-2 w-[100%] sm:p-4 dark: text-black"
           id="input_chat_id"
           autoComplete="off"
         />
         <button
-          className="bg-black text-white p-2 rounded-full ml-2 sm:p-4 dark:bg-white dark:text-black"
+          className="bg-black text-white px-4 py-2 rounded-full ml-2 sm:p-4 dark:bg-white dark:text-black"
           onClick={handleSubmitQuery}
         >
           <img
             src={sparkle_gif}
             alt="bard sparkle"
-            className="bard_sparkle max-w-4 inline-block mr-2 sm:max-w-6"
+            className="bard_sparkle max-w-4 inline-block sm:max-w-6"
           />
-          Proompt
         </button>
       </div>
       <div className="chat_intro_warning text-center mt-2">

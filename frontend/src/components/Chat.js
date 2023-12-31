@@ -67,19 +67,14 @@ function Chat({
 
   return (
     // Chat Outer Container
-    <div className="container mx-auto h-full sm:h-[70vh]">
-      {/*  */}
+    <div className="container flex flex-col justify-between mx-auto h-[90vh]">
       <div className="chat_inner_container flex flex-col-reverse items-center justify-start sm:items-center sm:justify-between sm:h-full sm:flex-row">
         <motion.div
           className="chat_left self-start sm:self-center"
-          initial={{ opacity: 0, scale: 0.75, y: -200 }}
+          initial={{ opacity: 0, scale: 0.75, y: 200 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
         >
-          {/* <img
-            src="https://www.gstatic.com/lamda/images/sparkle_resting_v2_1ff6f6a71f2d298b1a31.gif"
-            alt="bard sparkle"
-            className="bard_sparkle max-w-12"
-          /> */}
           {showIntro ? (
             <ChatIntro
               setShowIntro={setShowIntro}
@@ -94,8 +89,9 @@ function Chat({
             alt="Kenneth Choi"
             src={memoji}
             className="max-w-36 sm:max-w-72"
-            initial={{ opacity: 0, scale: 0.75, y: -200 }}
+            initial={{ opacity: 0, scale: 0.75, y: 200 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ delay: 0.75 }}
           />
         </div>
       </div>

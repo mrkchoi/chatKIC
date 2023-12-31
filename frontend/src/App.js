@@ -16,22 +16,25 @@ function App() {
       <div className="container mx-auto p-6">
         <Header />
         <div className="main_wrapper">
-          <Routes>
+          <Chat
+            showIntro={showIntro}
+            setShowIntro={setShowIntro}
+            showSuggestions={showSuggestions}
+            setShowSuggestions={setShowSuggestions}
+          />
+          <About />
+          <Contact />
+          {/* <Routes>
             <Route
               path="/"
               element={
-                <Chat
-                  showIntro={showIntro}
-                  setShowIntro={setShowIntro}
-                  showSuggestions={showSuggestions}
-                  setShowSuggestions={setShowSuggestions}
-                />
+                
               }
             />
             <Route path="/about/" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Chat />} />
-          </Routes>
+          </Routes> */}
         </div>
       </div>
     </BrowserRouter>

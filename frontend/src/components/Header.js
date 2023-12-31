@@ -35,7 +35,7 @@ function Header() {
 
   return (
     <motion.div
-      className="header_wrapper relative"
+      className="header_wrapper relative container mx-auto p-6"
       initial={{ opacity: 0, scale: 0.75, y: 200 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
     >

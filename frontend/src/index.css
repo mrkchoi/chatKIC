@@ -52,3 +52,26 @@ a:after {
   transition: transform 0.5s cubic-bezier(0.55, 0, 0.1, 1);
   transform: scaleX(0);
 }
+
+/* Experience Table styles */
+
+@layer base {
+  th,
+  td {
+    @apply p-4 pl-8 border-b dark:border-slate-300;
+  }
+
+  th {
+    @apply text-left text-2xl font-normal;
+  }
+
+  td {
+    @apply dark:text-slate-300;
+  }
+}
+
+.skills:hover {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👋</text></svg>")
+      16 0,
+    auto;
+}

@@ -17,7 +17,7 @@ function ChatInput({
 
   return (
     // <div className="input_parent_container fixed flex flex-col bottom-0 left-[50%] translate-x-[-50%] z-30 w-[inherit] container p-6 items-center ">
-    <div className="input_parent_container flex flex-col z-30 w-[inherit] container  items-center sm:p-6">
+    <div className="input_parent_container flex flex-col mb-4 z-30 w-[inherit] container items-center">
       {/* <div
         className={`input_suggestion_wrapper ${
           showSuggestions ? 'fadeIn' : 'fadeOut'

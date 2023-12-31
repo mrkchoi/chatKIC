@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Chat from './components/Chat';
 import About from './components/About';
 import Header from './components/Header';
-import Contact from './components/Contact';
+import Experience from './components/Experience';
+import Footer from './components/Footer';
 
 // import './styles/Global.css';
 // import './styles/App.css';
@@ -13,18 +14,19 @@ function App() {
   const [showSuggestions, setShowSuggestions] = useState(false);
   return (
     <BrowserRouter>
-      <div className="container mx-auto p-6">
-        <Header />
-        <div className="main_wrapper">
-          <Chat
-            showIntro={showIntro}
-            setShowIntro={setShowIntro}
-            showSuggestions={showSuggestions}
-            setShowSuggestions={setShowSuggestions}
-          />
-          <About />
-          <Contact />
-          {/* <Routes>
+      {/* <div className="container mx-auto p-6"> */}
+      <Header />
+      {/* <div className="main_wrapper"> */}
+      <Chat
+        showIntro={showIntro}
+        setShowIntro={setShowIntro}
+        showSuggestions={showSuggestions}
+        setShowSuggestions={setShowSuggestions}
+      />
+      <About />
+      <Experience />
+      <Footer />
+      {/* <Routes>
             <Route
               path="/"
               element={
@@ -35,8 +37,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Chat />} />
           </Routes> */}
-        </div>
-      </div>
+      {/* </div> */}
+      {/* </div> */}
     </BrowserRouter>
   );
 }

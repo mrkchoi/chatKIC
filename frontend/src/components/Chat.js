@@ -67,13 +67,13 @@ function Chat({
 
   return (
     // Chat Outer Container
-    <div className="container flex flex-col justify-between mx-auto h-[90vh]">
+    <div className="container flex flex-col justify-between mx-auto p-6 h-[90vh]">
       <div className="chat_inner_container flex flex-col-reverse items-center justify-start sm:items-center sm:justify-between sm:h-full sm:flex-row">
         <motion.div
           className="chat_left self-start sm:self-center"
           initial={{ opacity: 0, scale: 0.75, y: 200 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
+          // transition={{ delay: 0.5 }}
         >
           {showIntro ? (
             <ChatIntro
@@ -91,7 +91,7 @@ function Chat({
             className="max-w-36 sm:max-w-72"
             initial={{ opacity: 0, scale: 0.75, y: 200 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ delay: 0.75 }}
+            // transition={{ delay: 0.75 }}
           />
         </div>
       </div>

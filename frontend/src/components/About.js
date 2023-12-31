@@ -2,73 +2,143 @@ import React from 'react';
 import kc from '../images/kc.png';
 import { motion } from 'framer-motion';
 
-import '../styles/About.css';
+// import '../styles/About.css';
 
 const About = () => {
   return (
-    <motion.div
-      className="about_wrapper"
-      initial={{ opacity: 0, scale: 0.75, y: -200 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-    >
-      <div className="header_tagline_container">
-        <h2 className="header_tagline">
-          Currently caffeinated and ready to code.{' '}
-          <span className="heart">♥</span>
-        </h2>
-      </div>
-      <div className="card inner_wrapper text_content">
-        <div className="about_content">
-          <strong>
-            I'm a software engineer driven by technical challenges, solving
-            puzzles, and mastering new programming languages.
-          </strong>{' '}
-          My passion lies in crafting elegant, efficient code in collaborative
-          environments. Writing, optimizing, and debugging are more than just
-          tasks - they're my creative outlet, a playground for problem-solving
-          and expression.<br></br>
-          <br></br>
-          <strong>My toolbox includes:</strong> JavaScript/Typescript, React,
-          Redux/Undux, GraphQL, Relay, PHP/Hack, Ruby/Rails, Python, Node.js,
-          Express, MongoDB, PostgreSQL, Git, HTML5, and CSS/SCSS.
-          <br></br>
-          <br></br>
-          <strong>When I'm not writing code, you can find me:</strong> pounding
-          the pavement on a jog, whipping up something delicious in the kitchen,
-          diving into a non-fiction book, or strategizing my next chess move.
-          <br></br>
-          <br></br>
-          <strong>Thank you for visiting my site!</strong> I'm eager to connect
-          and explore the possibilities of collaborating on something amazing.
-          <br></br>
-          <br></br> Sincerely,
-          <img alt="Kenneth Choi" src={kc} className="about_sign" />
-          <div className="divider"></div>
-          <section className="landing-skills">
-            <h2>Skills</h2>
-            <div className="landing-skills__main">
-              <i className="devicon-javascript-plain"></i>
-              <i className="devicon-typescript-plain"></i>
-              <i className="devicon-react-original-wordmark"></i>
-              <i className="devicon-python-plain"></i>
-              <i className="devicon-php-plain"></i>
-              <i className="devicon-ruby-plain-wordmark"></i>
-              <i className="devicon-rails-plain-wordmark"></i>
-              <i className="devicon-postgresql-plain-wordmark"></i>
-              <i className="devicon-mongodb-plain-wordmark"></i>
-              <i className="devicon-nodejs-plain-wordmark"></i>
-              <i className="devicon-html5-plain-wordmark"></i>
-              <i className="devicon-sass-original"></i>
-              <i className="devicon-css3-plain-wordmark"></i>
-              <i className="devicon-git-plain-wordmark"></i>
-              <i className="devicon-amazonwebservices-plain-wordmark"></i>
-              <i className="devicon-babel-plain"></i>
-              <i className="devicon-d3js-plain"></i>
-            </div>
-          </section>
+    <div className="bg-white dark:bg-black">
+      <motion.div
+        className="container flex flex-col justify-around mt-24 mx-auto p-6 min-h-screen md:mt-48"
+        initial={{ opacity: 0, scale: 0.75, y: 200 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+      >
+        <div className="about_top">
+          <motion.p
+            className="text-3xl mt-24 mb-16 md:text-6xl md:mb-24"
+            initial={{ opacity: 0, scale: 0.75, y: 200 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ delay: 0.25 }}
+            viewport={{ once: true }}
+          >
+            Kenny Choi is a Full Stack Software Engineer experienced in
+            enterprise development. He is driven by technical challenges and a
+            love for collaboration. He aspires to create elegant solutions to
+            complex problems.
+          </motion.p>
         </div>
-      </div>
-    </motion.div>
+        <div className="about_bottom flex flex-col justify-between md:flex-row">
+          <motion.div
+            className="skills flex flex-col mb-24 lg:flex-row md:text-2xl"
+            initial={{ opacity: 0, scale: 0.75, y: 200 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <div className="skills_first mr-12">
+              <p className="group">
+                <span className="inline-block mr-4 group-hover:translate-x-3 transition-all duration-100 ease-linear">
+                  →
+                </span>
+                Javascript/Typescript
+              </p>
+              <p className="group">
+                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                  →
+                </span>
+                React
+              </p>
+              <p className="group">
+                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                  →
+                </span>
+                Redux/Undux
+              </p>
+              <p className="group">
+                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                  →
+                </span>
+                GraphQL
+              </p>
+              <p className="group">
+                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                  →
+                </span>
+                Relay
+              </p>
+              <p className="group">
+                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                  →
+                </span>
+                HTML5
+              </p>
+              <p className="group">
+                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                  →
+                </span>
+                Tailwind + CSS
+              </p>
+            </div>
+            <div className="skills_second">
+              <p className="group">
+                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                  →
+                </span>
+                Python
+              </p>
+              <p className="group">
+                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                  →
+                </span>
+                Flask
+              </p>
+              <p className="group">
+                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                  →
+                </span>
+                Ruby/Rails
+              </p>
+              <p className="group">
+                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                  →
+                </span>
+                Node.js
+              </p>
+              <p className="group">
+                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                  →
+                </span>
+                Express
+              </p>
+              <p className="group">
+                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                  →
+                </span>
+                NoSQL/SQL
+              </p>
+              <p className="group">
+                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                  →
+                </span>
+                Git/Mercurial
+              </p>
+            </div>
+          </motion.div>
+          <motion.div
+            className="quip md:max-w-[50%] text-xl"
+            initial={{ opacity: 0, scale: 0.75, y: -200 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            {' '}
+            <strong>When I'm not writing code, you can find me:</strong>{' '}
+            pounding the pavement on a jog, whipping up something delicious in
+            the kitchen, diving into a non-fiction book, or strategizing my next
+            chess move.
+          </motion.div>
+        </div>
+      </motion.div>
+    </div>
   );
 };
 

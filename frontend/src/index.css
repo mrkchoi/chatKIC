@@ -60,7 +60,7 @@ a:after,
 @layer base {
   th,
   td {
-    @apply border-b p-4 pl-8 dark:border-slate-300;
+    @apply border-b p-4 pl-8 md:text-2xl dark:border-slate-300;
   }
 
   th {

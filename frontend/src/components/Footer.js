@@ -9,20 +9,18 @@ import resume from "../files/Kenneth Choi Resume 2023.pdf";
 
 const Footer = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.75, y: -200 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      className="relative mx-auto h-screen w-screen items-center bg-black text-white dark:bg-white dark:text-black"
+    <div
+      className="relative mx-auto flex min-h-screen w-screen items-center bg-black text-white dark:bg-white dark:text-black"
       id="footer"
     >
       <Element name="footer_scroll"></Element>
       <motion.div
-        className="container mx-auto flex h-full flex-col justify-around p-6"
         initial={{ opacity: 0, scale: 0.75, y: 200 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true }}
+        className="container mx-auto flex h-full flex-col justify-around p-6 pb-20"
       >
-        <div className="footer_top">
+        <div className="footer_top mb-24">
           <p className="text-4xl md:max-w-[40%]">
             Let's create something memorable and timeless together.
           </p>
@@ -33,12 +31,7 @@ const Footer = () => {
             className="mt-6 block w-36 dark:hidden"
           />
         </div>
-        <motion.div
-          className="footer_links"
-          initial={{ opacity: 0, scale: 0.75, y: 200 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <div className="footer_links">
           <h3 className="mb-8 text-2xl">Links</h3>
           <div className="footer_bottom flex flex-col md:flex-row">
             <div className="links mr-24">
@@ -100,7 +93,7 @@ const Footer = () => {
               </p>
             </div>
           </div>
-        </motion.div>
+        </div>
       </motion.div>
       <div className="absolute bottom-8 right-8 md:right-12">
         <Link
@@ -118,7 +111,7 @@ const Footer = () => {
           </span>
         </Link>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

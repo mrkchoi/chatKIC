@@ -7,7 +7,7 @@ const About = () => {
     <div className="bg-white dark:bg-black" id="about">
       <Element name="about_scroll"></Element>
       <motion.div
-        className="container mx-auto mt-24 flex min-h-screen flex-col justify-around p-6 md:mt-48"
+        className="container mx-auto flex min-h-screen flex-col justify-around p-6 pt-24 md:mt-48"
         initial={{ opacity: 0, scale: 0.75, y: 200 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
       >

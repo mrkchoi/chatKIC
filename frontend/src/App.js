@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Experience from "./components/Experience";
 import Footer from "./components/Footer";
 import { Element } from "react-scroll";
+import SkillsGrid from "./components/SkillsGrid";
 
 function App() {
   let [showIntro, setShowIntro] = useState(true);
@@ -15,6 +16,7 @@ function App() {
       <Header />
       <Chat showIntro={showIntro} setShowIntro={setShowIntro} />
       <About />
+      <SkillsGrid />
       <Experience />
       <Footer />
     </BrowserRouter>

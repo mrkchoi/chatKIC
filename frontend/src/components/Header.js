@@ -53,7 +53,7 @@ function Header() {
                 id="home_nav_item"
                 className={({ isActive }) =>
                   (isActive ? " " : "") +
-                  "mr-1 inline-block rounded-full py-2 text-xl transition-all duration-150"
+                  "mr-1 inline-block rounded-full py-2 text-2xl transition-all duration-150"
                 }
               >
                 <span className={menuOpen ? "text-white" : ""}>

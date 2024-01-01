@@ -3,15 +3,15 @@ import { motion } from "framer-motion";
 
 const Experience = () => {
   return (
-    <div className="min-h-full bg-white pb-72 pt-24 dark:bg-black">
+    <div className="min-h-full bg-white pb-72 pt-48 dark:bg-black">
       <motion.div
         className="container mx-auto p-6 md:p-12"
         initial={{ opacity: 0, scale: 0.75, y: 200 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <h1 className="text-2xl">Experience</h1>
-        <div className="table_container">
+        <h1 className="text-4xl font-bold">Experience</h1>
+        <div className="table_container pt-12">
           <table className="w-full table-auto">
             <thead>
               <tr>

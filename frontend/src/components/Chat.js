@@ -7,8 +7,9 @@ import ChatInput from "./ChatInput";
 import { motion } from "framer-motion";
 
 // import memoji_video from "../images/memoji_bgGray.mp4";
-import memojiBgGray from "../images/memoji_bgGray.mp4";
-import memojiBgBlack from "../images/memoji_bgBlack.mp4";
+import memojiBgGray from "../images/memoji_bg_lightgray.mp4";
+import memojiBgBlack from "../images/memoji_bg_black_001.mp4";
+import memojiBgDarkGray from "../images/memoji_bg_darkgray.mp4";
 
 // import '../styles/Chat.css';
 
@@ -102,7 +103,7 @@ function Chat({
             data-autoplay={true}
           ></video>
           <video
-            src={memojiBgBlack}
+            src={memojiBgDarkGray}
             loop={true}
             autoPlay={true}
             className="hidden max-w-36 sm:max-w-52 dark:block"

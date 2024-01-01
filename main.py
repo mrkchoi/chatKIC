@@ -1,126 +1,48 @@
 import uuid
-from langchain.document_loaders import PyPDFLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.vectorstores import pinecone
-from langchain.vectorstores.pinecone import Pinecone
-# from langchain.vectorstores.chroma import Chroma
-from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.chains import ConversationalRetrievalChain
-from langchain.llms.openai import OpenAI
-
-from langchain.prompts import SystemMessagePromptTemplate, HumanMessagePromptTemplate, ChatPromptTemplate
-# from tqdm.autonotebook import tqdm
-from dotenv import load_dotenv
-
-import pinecone
+from llama_index import VectorStoreIndex, SimpleDirectoryReader, ServiceContext
+import openai
+from langchain.chat_models import ChatOpenAI
 import os
+from dotenv import load_dotenv
 
 load_dotenv()
 
-llm = OpenAI()
-embeddings = OpenAIEmbeddings()
+# -----------------  chatbot  ----------------- #
+openai.api_key = os.environ.get('OPENAI_API_KEY')
 
-pinecone.init(
-  api_key=os.environ.get('PINECONE_API_KEY'),
-  environment='gcp-starter',
-)
+# load the file
+documents = SimpleDirectoryReader(input_files=["./data/bio.txt"]).load_data()
 
-index_name = 'chat-pdf-index'    
-vectorstore = Pinecone.from_existing_index(
-  index_name=index_name,
-  embedding=embeddings
-)
-
-qa_system_template = """
-Answer all questions as a friendly, enthusiastic assistant who advocates for Kenneth Choi as a software engineer. Only answer questions related to Kenneth. 
-----------------
-{context}"""
-# qa_system_template = """
-# Answer all questions as a funny pirate and use pirate puns and jokes in all sentences
-# ----------------
-# {context}"""
-
-messages = [
-  SystemMessagePromptTemplate.from_template(qa_system_template),
-  HumanMessagePromptTemplate.from_template("{question}"),
-  
-]
-
-qa_system_prompt = ChatPromptTemplate.from_messages(messages)
-
-qa = ConversationalRetrievalChain.from_llm(
-  llm=llm,
-  retriever=vectorstore.as_retriever(),
-  return_source_documents=True,
-  verbose=True,
-  combine_docs_chain_kwargs={"prompt": qa_system_prompt}
-)
-
-# qa = ConversationalRetrievalChain.from_llm(
-#   llm=llm,
-#   retriever=vectorstore.as_retriever(),
-#   return_source_documents=True,
-# )
-
-chat_history = []
-
-def send_query(query_string, json_chat_history):
-  print('query_string: ', query_string)
-  print('chat_history: ', chat_history)
-  result = qa({
-    "question": query_string,
-    "chat_history": []
-  })
-  # json_chat_history.append({
-  #   'id': uuid.uuid4(), 
-  #   'isHuman': True,
-  #   'content': query_string
-  # })
-  # json_chat_history.append({
-  #   'id': uuid.uuid4(), 
-  #   'isHuman': False,
-  #   'content': result['answer']
-  #   })
-  return {
-    'id': uuid.uuid4(), 
-    'isHuman': False,
-    'content': result['answer']
-    }
-  # chat_history.append((query_string, result['answer']))
-  
-def reset_chat_history():
-  chat_history.clear()
-  
-# send_query('You are a friendly and humorous assistant that enthusiastically gives a glowing recommendation for software engineer Kenneth Choi.')
-# query = 'You are a friendly and humorous assistant that enthusiastically gives a glowing recommendation for Kenneth Choi. Try to use silly puns in all responses. '
-
-# # 'Politely decline to answer any questions that do not pertain to Kenneth, his work history, or relevant questions that a recruiter/hiring manager might ask, if they arise later in the conversation.'
-
-# result = qa({
-#   "question": query,
-#   "chat_history": chat_history
-# })
-# chat_history.append((query, result['answer']))
-
-# query = "Tell me about an engineering project he has worked on in the past"
-# result = qa({
-#   "question": query,
-#   "chat_history": chat_history
-# })
-# chat_history.append((query, result['answer']))
-
-# print(result['answer'])
-
-
-# query = 'What else did he do at facebook?'
-# result = qa({
-#   'question': query,
-#   'chat_history': chat_history
-# })
-# chat_history.append((query, result['answer']))
-
-# print("\n")
-# # print(result['answer'])
-# for history in chat_history:
-#     print("\n\n")
-#     print(history)
+def ask_bot(input_text):
+    # define LLM
+    llm = ChatOpenAI(
+        model_name="gpt-3.5-turbo",
+        temperature=0,
+        openai_api_key=openai.api_key,
+    )
+    
+    service_context = ServiceContext.from_defaults(llm=llm)
+    
+    # load index
+    index = VectorStoreIndex.from_documents(documents, service_context=service_context)    
+    
+    # query LlamaIndex and GPT-3.5 for the AI's response
+    PROMPT_QUESTION = f"""You are Buddy, a friendly, humorous AI assistant dedicated to assisting recruiters with relevant and concise information about Kenny Choi, a full stack software engineer. 
+    If you do not know the answer about Kenny Choi, politely admit it and let recruiters know how to contact Kenny to get more information directly from him. 
+    The user does not have access to the context information, so do not mention the phrase 'context information'.
+    Keep answers brief, maximum three sentences with the last sentence asking the user if they would like more help.
+    Have a cheeky, British sense of humour in all responses.
+    Don't answer any questions not related to Kenny. 
+    Include linebreaks as necessary with newline syntax.
+    Don't put "Buddy" or a breakline in the front of your answer.
+    Human: {input_text}
+    """
+    
+    output = index.as_query_engine().query(PROMPT_QUESTION)
+    
+    print('PROMPT_QUESTION', PROMPT_QUESTION)
+    print(f"output: {output}")
+    return {
+      'id': uuid.uuid4(), 
+      'response': output.response
+      }

@@ -1,23 +1,24 @@
-import React from 'react';
-import kc from '../images/kc.png';
-import { motion } from 'framer-motion';
+import React from "react";
+import kc from "../images/kc.png";
+import { motion } from "framer-motion";
+import { Element } from "react-scroll";
 
 // import '../styles/About.css';
 
 const About = () => {
   return (
-    <div className="bg-white dark:bg-black">
+    <div className="bg-white dark:bg-black" id="about">
+      <Element name="about_scroll"></Element>
       <motion.div
-        className="container flex flex-col justify-around mt-24 mx-auto p-6 min-h-screen md:mt-48"
+        className="container mx-auto mt-24 flex min-h-screen flex-col justify-around p-6 md:mt-48"
         initial={{ opacity: 0, scale: 0.75, y: 200 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
       >
         <div className="about_top">
           <motion.p
-            className="text-3xl mt-24 mb-16 md:text-6xl md:mb-24"
+            className="mb-16 mt-24 text-3xl md:mb-24 md:text-6xl"
             initial={{ opacity: 0, scale: 0.75, y: 200 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ delay: 0.25 }}
             viewport={{ once: true }}
           >
             Kenny Choi is a Full Stack Software Engineer experienced in
@@ -26,53 +27,52 @@ const About = () => {
             complex problems.
           </motion.p>
         </div>
-        <div className="about_bottom flex flex-col justify-between md:flex-row">
-          <motion.div
-            className="skills flex flex-col mb-24 lg:flex-row md:text-2xl"
-            initial={{ opacity: 0, scale: 0.75, y: 200 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            viewport={{ once: true }}
-          >
+        <motion.div
+          className="about_bottom flex flex-col justify-between md:flex-row"
+          initial={{ opacity: 0, scale: 0.75, y: 200 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="skills mb-24 flex flex-col md:text-2xl lg:flex-row">
             <div className="skills_first mr-12">
               <p className="group">
-                <span className="inline-block mr-4 group-hover:translate-x-3 transition-all duration-100 ease-linear">
+                <span className="mr-4 inline-block transition-all duration-100 ease-linear group-hover:translate-x-3">
                   →
                 </span>
                 Javascript/Typescript
               </p>
               <p className="group">
-                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                <span className="mr-4 inline-block transition-all  duration-100 ease-linear group-hover:translate-x-3">
                   →
                 </span>
                 React
               </p>
               <p className="group">
-                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                <span className="mr-4 inline-block transition-all  duration-100 ease-linear group-hover:translate-x-3">
                   →
                 </span>
                 Redux/Undux
               </p>
               <p className="group">
-                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                <span className="mr-4 inline-block transition-all  duration-100 ease-linear group-hover:translate-x-3">
                   →
                 </span>
                 GraphQL
               </p>
               <p className="group">
-                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                <span className="mr-4 inline-block transition-all  duration-100 ease-linear group-hover:translate-x-3">
                   →
                 </span>
                 Relay
               </p>
               <p className="group">
-                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                <span className="mr-4 inline-block transition-all  duration-100 ease-linear group-hover:translate-x-3">
                   →
                 </span>
                 HTML5
               </p>
               <p className="group">
-                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                <span className="mr-4 inline-block transition-all  duration-100 ease-linear group-hover:translate-x-3">
                   →
                 </span>
                 Tailwind + CSS
@@ -80,63 +80,60 @@ const About = () => {
             </div>
             <div className="skills_second">
               <p className="group">
-                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                <span className="mr-4 inline-block transition-all  duration-100 ease-linear group-hover:translate-x-3">
                   →
                 </span>
                 Python
               </p>
               <p className="group">
-                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                <span className="mr-4 inline-block transition-all  duration-100 ease-linear group-hover:translate-x-3">
                   →
                 </span>
                 Flask
               </p>
               <p className="group">
-                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                <span className="mr-4 inline-block transition-all  duration-100 ease-linear group-hover:translate-x-3">
                   →
                 </span>
                 Ruby/Rails
               </p>
               <p className="group">
-                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                <span className="mr-4 inline-block transition-all  duration-100 ease-linear group-hover:translate-x-3">
                   →
                 </span>
                 Node.js
               </p>
               <p className="group">
-                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                <span className="mr-4 inline-block transition-all  duration-100 ease-linear group-hover:translate-x-3">
                   →
                 </span>
                 Express
               </p>
               <p className="group">
-                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                <span className="mr-4 inline-block transition-all  duration-100 ease-linear group-hover:translate-x-3">
                   →
                 </span>
                 NoSQL/SQL
               </p>
               <p className="group">
-                <span className="inline-block mr-4 group-hover:translate-x-3  transition-all duration-100 ease-linear">
+                <span className="mr-4 inline-block transition-all  duration-100 ease-linear group-hover:translate-x-3">
                   →
                 </span>
                 Git/Mercurial
               </p>
             </div>
-          </motion.div>
-          <motion.div
-            className="quip md:max-w-[50%] text-xl"
-            initial={{ opacity: 0, scale: 0.75, y: -200 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            {' '}
-            <strong>When I'm not writing code, you can find me:</strong>{' '}
-            pounding the pavement on a jog, whipping up something delicious in
-            the kitchen, diving into a non-fiction book, or strategizing my next
-            chess move.
-          </motion.div>
-        </div>
+          </div>
+          <div className="quip text-xl md:max-w-[50%]">
+            {" "}
+            <strong>When I'm not writing code, you can find me:</strong>{" "}
+            <span id="run">pounding the pavement on a jog</span>,{" "}
+            <span id="food">
+              whipping up something delicious in the kitchen
+            </span>
+            , <span id="read">diving into a non-fiction book</span>, or{" "}
+            <span id="chess">strategizing my next chess move.</span>
+          </div>
+        </motion.div>
       </motion.div>
     </div>
   );

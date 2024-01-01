@@ -81,11 +81,11 @@
               <TypeAnimation
                 splitter={(str) => str.split(/(?= )/)}
                 sequence={[message.content, 3000]}
-                speed={{ type: 'keyStrokeDelayInMs', value: 10 }}
+                speed={{ type: "keyStrokeDelayInMs", value: 10 }}
                 omitDeletionAnimation={true}
                 cursor={false}
                 className="chat_message_content"
-                style={{ fontSize: '1.1rem', lineHeight: '24px' }}
+                style={{ fontSize: "1.1rem", lineHeight: "24px" }}
               />
             ) : (
               <p className="chat_message_content">{message.content}</p>

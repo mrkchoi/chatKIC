@@ -1,66 +1,68 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
-import resume from '../files/Kenneth Choi Resume 2023.pdf';
-import download_icon from '../images/download_icon.png';
+import resume from "../files/Kenneth Choi Resume 2023.pdf";
+import download_icon from "../images/download_icon.png";
+import { Link, Element } from "react-scroll";
 
 const MobileNav = ({ setMenuOpen }) => {
   return (
     <AnimatePresence>
       <motion.div
-        className="container pt-20 p-6 fixed top-0 left-0 right-0 bottom-0  z-40 bg-black text-white"
+        className="container fixed bottom-0 left-0 right-0 top-0 z-40 bg-black  p-6 pt-20 text-white"
         initial={{ opacity: 0, scale: 0.75, y: 200 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
       >
-        <div className="flex flex-col items-center justify-center w-full h-full">
+        <div className="flex h-full w-full flex-col items-center justify-center">
           <ul className="">
             <li className="text-center">
               <NavLink
                 to="/"
                 id="home_nav_item"
-                className={({ isActive }) =>
-                  (isActive ? 'bg-btnActiveDark text-black ' : '') +
-                  'px-6 py-4 rounded-full transition-all duration-150 inline-block hover:bg-btnHoverDark'
-                }
+                className="mr-1 cursor-pointer rounded-full py-2 transition-all duration-150"
                 onClick={() => setMenuOpen(false)}
               >
                 Home
               </NavLink>
             </li>
             <li className="text-center">
-              <NavLink
-                to="/about"
-                className={({ isActive }) =>
-                  (isActive ? 'bg-btnActiveDark text-black ' : '') +
-                  'px-6 py-4 rounded-full transition-all duration-150 hover:bg-btnHoverDark inline-block md:hidden'
-                }
+              <Link
+                to="about_scroll"
+                activeClass="active"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+                className="mr-1 cursor-pointer rounded-full py-2 transition-all duration-150"
                 onClick={() => setMenuOpen(false)}
               >
                 About
-              </NavLink>
+              </Link>
             </li>
             <li className="text-center">
-              <NavLink
-                to="/contact"
-                className={({ isActive }) =>
-                  (isActive ? 'bg-btnActiveDark  text-black ' : '') +
-                  'px-6 py-4 rounded-full transition-all duration-150  hover:bg-btnHoverDark inline-block md:hidden'
-                }
+              <Link
+                to="footer_scroll"
+                activeClass="active"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+                className="mr-1 cursor-pointer rounded-full py-2 transition-all duration-150"
                 onClick={() => setMenuOpen(false)}
               >
                 Contact
-              </NavLink>
+              </Link>
             </li>
             <li className="text-center">
               <a
                 href={resume}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-block px-6 py-4 rounded-full hover:bg-btnResumeHover hover:cursor-pointer transition-all duration-150 md:hidden"
+                className="mr-1 cursor-pointer rounded-full py-2 transition-all duration-150"
                 onClick={() => setMenuOpen(false)}
               >
-                Resume{' '}
+                Resume{" "}
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -68,11 +70,11 @@ const MobileNav = ({ setMenuOpen }) => {
                   stroke="#ffffff"
                   className="inline-block w-4"
                 >
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                   <g
                     id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   ></g>
                   <g id="SVGRepo_iconCarrier">
                     <path

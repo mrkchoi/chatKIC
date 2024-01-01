@@ -1,17 +1,18 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 const Experience = () => {
   return (
-    <div className="bg-white pt-24 dark:bg-black min-h-screen">
+    <div className="min-h-full bg-white pb-72 pt-24 dark:bg-black">
       <motion.div
         className="container mx-auto p-6 md:p-12"
-        initial={{ opacity: 0, scale: 0.75, y: -200 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
+        initial={{ opacity: 0, scale: 0.75, y: 200 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: true }}
       >
         <h1 className="text-2xl">Experience</h1>
         <div className="table_container">
-          <table className="table-auto w-full">
+          <table className="w-full table-auto">
             <thead>
               <tr>
                 <th>Year</th>

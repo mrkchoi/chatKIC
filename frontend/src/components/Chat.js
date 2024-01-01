@@ -1,10 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
-import ChatIntro from './ChatIntro';
-import ChatResponse from './ChatResponse';
-import memoji from '../images/memoji_001.png';
-import ChatInput from './ChatInput';
-import { motion } from 'framer-motion';
+import ChatIntro from "./ChatIntro";
+import ChatResponse from "./ChatResponse";
+import memoji from "../images/memoji_001.png";
+import ChatInput from "./ChatInput";
+import { motion } from "framer-motion";
+
+// import memoji_video from "../images/memoji_bgGray.mp4";
+import memojiBgGray from "../images/memoji_bgGray.mp4";
+import memojiBgBlack from "../images/memoji_bgBlack.mp4";
 
 // import '../styles/Chat.css';
 
@@ -15,7 +19,7 @@ function Chat({
   setShowSuggestions,
 }) {
   const [response, setResponse] = useState({});
-  const [query, setQuery] = useState('Briefly Introduce Kenny');
+  const [query, setQuery] = useState("Briefly Introduce Kenny");
   const [isLoading, setIsLoading] = useState(false);
 
   const inputRef = useRef(null);
@@ -29,11 +33,11 @@ function Chat({
     e.preventDefault();
     setIsLoading(true);
 
-    fetch('/api/data', {
-      method: 'POST',
+    fetch("/api/data", {
+      method: "POST",
       body: JSON.stringify({ query }),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     })
       .then((res) => res.json())
@@ -41,23 +45,24 @@ function Chat({
         const responseData = res.data;
         setIsLoading(false);
         setResponse(responseData);
+        console.log("responseData: ", responseData);
       })
       .catch((err) => {
         setIsLoading(false);
         console.log(err);
       });
 
-    setQuery('');
+    setQuery("");
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       handleSubmitQuery(e);
     }
   };
 
   const handleSuggestionClick = (e) => {
-    if (e.target.className === 'card_button') {
+    if (e.target.className === "card_button") {
       const query = e.target.textContent;
       // const mappedQuery = queryMap[query];
       setQuery(query);
@@ -67,13 +72,12 @@ function Chat({
 
   return (
     // Chat Outer Container
-    <div className="container flex flex-col justify-between mx-auto p-6 h-[90vh]">
-      <div className="chat_inner_container flex flex-col-reverse items-center justify-start sm:items-center sm:justify-between sm:h-full sm:flex-row">
+    <div className="container mx-auto flex min-h-[90vh] flex-col justify-between p-6">
+      <div className="chat_inner_container flex flex-1 flex-col-reverse items-center justify-end sm:h-full sm:flex-row sm:items-center sm:justify-between">
         <motion.div
-          className="chat_left self-start sm:self-center"
+          className="chat_left mb-12 mr-2 self-start sm:self-center"
           initial={{ opacity: 0, scale: 0.75, y: 200 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          // transition={{ delay: 0.5 }}
         >
           {showIntro ? (
             <ChatIntro
@@ -81,19 +85,31 @@ function Chat({
               setShowSuggestions={setShowSuggestions}
             />
           ) : (
-            <ChatResponse isLoading={isLoading} response={response} />
+            <ChatResponse isLoading={isLoading} responseData={response} />
           )}
         </motion.div>
-        <div className="chat_right">
-          <motion.img
-            alt="Kenneth Choi"
-            src={memoji}
-            className="max-w-36 sm:max-w-72"
-            initial={{ opacity: 0, scale: 0.75, y: 200 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            // transition={{ delay: 0.75 }}
-          />
-        </div>
+        <motion.div
+          className="chat_right"
+          initial={{ opacity: 0, scale: 0.75, y: 200 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+        >
+          <video
+            src={memojiBgGray}
+            loop={true}
+            autoPlay={true}
+            className="max-w-36 sm:max-w-52 dark:hidden"
+            muted={true}
+            data-autoplay={true}
+          ></video>
+          <video
+            src={memojiBgBlack}
+            loop={true}
+            autoPlay={true}
+            className="hidden max-w-36 sm:max-w-52 dark:block"
+            muted={true}
+            data-autoplay={true}
+          ></video>
+        </motion.div>
       </div>
       <ChatInput
         showSuggestions={showSuggestions}

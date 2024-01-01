@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Chat from './components/Chat';
-import About from './components/About';
-import Header from './components/Header';
-import Experience from './components/Experience';
-import Footer from './components/Footer';
+import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Chat from "./components/Chat";
+import About from "./components/About";
+import Header from "./components/Header";
+import Experience from "./components/Experience";
+import Footer from "./components/Footer";
+import { Element } from "react-scroll";
 
 // import './styles/Global.css';
 // import './styles/App.css';
@@ -14,6 +15,7 @@ function App() {
   const [showSuggestions, setShowSuggestions] = useState(false);
   return (
     <BrowserRouter>
+      <Element name="top_scroll"></Element>
       {/* <div className="container mx-auto p-6"> */}
       <Header />
       {/* <div className="main_wrapper"> */}

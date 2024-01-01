@@ -27,8 +27,9 @@ a:active:after {
   transform-origin: center left;
 }
 
-a:after {
-  content: '';
+a:after,
+.linkDark:after {
+  content: "";
   position: absolute;
   display: block;
   width: 100%;
@@ -40,8 +41,9 @@ a:after {
   transform: scaleX(0);
 }
 
-.dark a:after {
-  content: '';
+.dark a:after,
+.linkLight:after {
+  content: "";
   position: absolute;
   display: block;
   width: 100%;
@@ -58,7 +60,7 @@ a:after {
 @layer base {
   th,
   td {
-    @apply p-4 pl-8 border-b dark:border-slate-300;
+    @apply border-b p-4 pl-8 dark:border-slate-300;
   }
 
   th {
@@ -71,7 +73,33 @@ a:after {
 }
 
 .skills:hover {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👋</text></svg>")
+  cursor:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👋</text></svg>")
+      16 0,
+    auto;
+}
+
+#run:hover {
+  cursor:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🏃</text></svg>")
+      16 0,
+    auto;
+}
+#food:hover {
+  cursor:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🍣</text></svg>")
+      16 0,
+    auto;
+}
+#read:hover {
+  cursor:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>📖</text></svg>")
+      16 0,
+    auto;
+}
+#chess:hover {
+  cursor:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>♟️</text></svg>")
       16 0,
     auto;
 }

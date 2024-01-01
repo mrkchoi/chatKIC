@@ -37,7 +37,6 @@ function Chat({ showIntro, setShowIntro }) {
         const responseData = res.data;
         setIsLoading(false);
         setResponse(responseData);
-        console.log("responseData: ", responseData);
       })
       .catch((err) => {
         setIsLoading(false);

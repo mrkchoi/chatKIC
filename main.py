@@ -57,11 +57,11 @@ def ask_bot(input_text):
       }
     
 def getIndexFromDocuments():
-    VectorStoreIndex.from_documents(documents, service_context=service_context)    
+    return VectorStoreIndex.from_documents(documents, service_context=service_context)    
     
 def getIndexFromPinecone():
     # load index from pinecone
-    index = VectorStoreIndex.from_vector_store(
+    return VectorStoreIndex.from_vector_store(
         vector_store=PineconeVectorStore(
             index_name=pinecone_index_name,
             api_key=os.environ.get('PINECONE_API_KEY'),

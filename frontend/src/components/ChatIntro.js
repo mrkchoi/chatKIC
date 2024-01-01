@@ -7,9 +7,9 @@ function ChatIntro({ setShowIntro }) {
   const isMobileDevice = useMediaQuery(MediaQuery.MOBILE);
 
   const style = {
-    fontSize: isMobileDevice ? "1.6rem" : "2.4rem",
+    fontSize: isMobileDevice ? "1.6rem" : "2.6rem",
     marginTop: "10px",
-    lineHeight: isMobileDevice ? "2.0rem" : "3.0rem",
+    lineHeight: isMobileDevice ? "2.0rem" : "3.2rem",
     whiteSpace: "pre-line",
   };
 

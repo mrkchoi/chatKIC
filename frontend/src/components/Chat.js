@@ -76,7 +76,7 @@ function Chat({ showIntro, setShowIntro }) {
             src={memojiBgGray}
             loop={true}
             autoPlay={true}
-            className="max-w-36 sm:max-w-52 dark:hidden"
+            className="max-w-36 sm:max-w-72 dark:hidden"
             muted={true}
             data-autoplay={true}
           ></video>
@@ -84,7 +84,7 @@ function Chat({ showIntro, setShowIntro }) {
             src={memojiBgDarkGray}
             loop={true}
             autoPlay={true}
-            className="hidden max-w-36 sm:max-w-52 dark:block"
+            className="hidden max-w-36 sm:max-w-72 dark:block"
             muted={true}
             data-autoplay={true}
           ></video>

@@ -20,7 +20,7 @@ const Footer = () => {
         viewport={{ once: true }}
         className="container mx-auto flex h-full flex-col justify-around p-6 pb-20"
       >
-        <div className="footer_top mb-24">
+        <div className="footer_top mb-24 mt-12">
           <p className="text-4xl md:max-w-[40%]">
             Let's create something memorable and timeless together.
           </p>

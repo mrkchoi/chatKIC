@@ -36,3 +36,6 @@ Kenny is actively seeking new opportunities and is ready to start immediately.
 
 References:
 References are available upon request.
+
+How did Kenny build this website?
+Kenny built this using Python, Flask, Langchain, LlamaIndex, PineconeDB, React, Javascript, and Tailwind. 

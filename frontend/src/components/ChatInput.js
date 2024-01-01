@@ -2,8 +2,6 @@ import React from "react";
 import sparkle_gif from "../images/sparkle_resting_v2_1ff6f6a71f2d298b1a31.gif";
 
 function ChatInput({
-  showSuggestions,
-  handleSuggestionClick,
   query,
   handleKeyDown,
   setQuery,

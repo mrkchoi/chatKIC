@@ -7,11 +7,16 @@ import { MediaQuery } from "../utill/MediaQuery";
 function ChatResponse({ isLoading, responseData }) {
   const isMobileDevice = useMediaQuery(MediaQuery.MOBILE);
 
-  const style = {
+  const styleDefault = {
     fontSize: isMobileDevice ? "1.6rem" : "2.4rem",
     marginTop: "10px",
-    // fontWeight: '600',
     lineHeight: isMobileDevice ? "2.0rem" : "3.0rem",
+    whiteSpace: "pre-line",
+  };
+  const style = {
+    fontSize: isMobileDevice ? "1.4rem" : "2.0rem",
+    marginTop: "10px",
+    lineHeight: isMobileDevice ? "1.8rem" : "2.6rem",
     whiteSpace: "pre-line",
   };
 
@@ -21,7 +26,7 @@ function ChatResponse({ isLoading, responseData }) {
   if (showDefault) {
     component = (
       <>
-        <span className="chat_intro_container--h1" style={style}>
+        <span className="chat_intro_container--h1" style={styleDefault}>
           Hello, I'm Kenny Choi,<br></br> a software engineer.<br></br>
           <br></br>Learn more about me by typing a question below 👇
         </span>
@@ -52,6 +57,7 @@ function ChatResponse({ isLoading, responseData }) {
       />
     );
   } else if (responseData?.response?.length) {
+    // const sentences = responseData?.response.replaceAll(/[.!?]/g, "$&\n");
     component = (
       <TypeAnimation
         key={responseData?.id}

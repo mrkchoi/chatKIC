@@ -1,9 +1,6 @@
 import React from "react";
-import kc from "../images/kc.png";
 import { motion } from "framer-motion";
 import { Element } from "react-scroll";
-
-// import '../styles/About.css';
 
 const About = () => {
   return (

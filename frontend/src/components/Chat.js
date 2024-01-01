@@ -2,23 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 
 import ChatIntro from "./ChatIntro";
 import ChatResponse from "./ChatResponse";
-import memoji from "../images/memoji_001.png";
 import ChatInput from "./ChatInput";
 import { motion } from "framer-motion";
 
-// import memoji_video from "../images/memoji_bgGray.mp4";
 import memojiBgGray from "../images/memoji_bg_lightgray.mp4";
-import memojiBgBlack from "../images/memoji_bg_black_001.mp4";
+// import memojiBgBlack from "../images/memoji_bg_black_001.mp4";
 import memojiBgDarkGray from "../images/memoji_bg_darkgray.mp4";
 
-// import '../styles/Chat.css';
-
-function Chat({
-  showIntro,
-  setShowIntro,
-  showSuggestions,
-  setShowSuggestions,
-}) {
+function Chat({ showIntro, setShowIntro }) {
   const [response, setResponse] = useState({});
   const [query, setQuery] = useState("Briefly Introduce Kenny");
   const [isLoading, setIsLoading] = useState(false);
@@ -62,15 +53,6 @@ function Chat({
     }
   };
 
-  const handleSuggestionClick = (e) => {
-    if (e.target.className === "card_button") {
-      const query = e.target.textContent;
-      // const mappedQuery = queryMap[query];
-      setQuery(query);
-      handleSubmitQuery(e);
-    }
-  };
-
   return (
     // Chat Outer Container
     <div className="container mx-auto flex min-h-[90vh] flex-col justify-between p-6">
@@ -81,10 +63,7 @@ function Chat({
           animate={{ opacity: 1, scale: 1, y: 0 }}
         >
           {showIntro ? (
-            <ChatIntro
-              setShowIntro={setShowIntro}
-              setShowSuggestions={setShowSuggestions}
-            />
+            <ChatIntro setShowIntro={setShowIntro} />
           ) : (
             <ChatResponse isLoading={isLoading} responseData={response} />
           )}
@@ -113,8 +92,6 @@ function Chat({
         </motion.div>
       </div>
       <ChatInput
-        showSuggestions={showSuggestions}
-        handleSuggestionClick={handleSuggestionClick}
         query={query}
         handleKeyDown={handleKeyDown}
         setQuery={setQuery}
@@ -127,5 +104,3 @@ function Chat({
 }
 
 export default Chat;
-
-// Arrr, shiver me timbers! It sounds like you have a good attitude and plenty of experience. It's always a challenge to be there for family during a tough time. Ya know, me and me mateys call that being a 'real' pirate! Ye didn't miss a beat during that period, and it sounds like ye had a good eye for the horizon durin' yer sabbatical, getting yerself all caught up with yer coding and such. Aye, if yer ready to get back to what ye love, then me advice is to make sure ye tell yer prospective employer about yer valuable experience and yer commitment to yer family. Ye can't be afraid to show yer true colors!

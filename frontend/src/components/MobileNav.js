@@ -3,8 +3,7 @@ import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 import resume from "../files/Kenneth Choi Resume 2023.pdf";
-import download_icon from "../images/download_icon.png";
-import { Link, Element } from "react-scroll";
+import { Link } from "react-scroll";
 
 const MobileNav = ({ setMenuOpen }) => {
   return (

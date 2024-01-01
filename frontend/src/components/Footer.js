@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-// import '../styles/Contact.css';
+import React from "react";
+
 import { motion } from "framer-motion";
-import kc from "../images/kc.png";
-import kc_dark from "../images/kc_dark.png";
-import kc_light from "../images/kc_light.png";
 import { Link, Element } from "react-scroll";
 
+import kc_dark from "../images/kc_dark.png";
+import kc_light from "../images/kc_light.png";
 import resume from "../files/Kenneth Choi Resume 2023.pdf";
 
 const Footer = () => {
@@ -17,7 +16,12 @@ const Footer = () => {
       id="footer"
     >
       <Element name="footer_scroll"></Element>
-      <div className="container mx-auto flex h-full flex-col justify-around p-6">
+      <motion.div
+        className="container mx-auto flex h-full flex-col justify-around p-6"
+        initial={{ opacity: 0, scale: 0.75, y: 200 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
         <div className="footer_top">
           <p className="text-4xl md:max-w-[40%]">
             Let's create something memorable and timeless together.
@@ -29,7 +33,12 @@ const Footer = () => {
             className="mt-6 block w-36 dark:hidden"
           />
         </div>
-        <div>
+        <motion.div
+          className="footer_links"
+          initial={{ opacity: 0, scale: 0.75, y: 200 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           <h3 className="mb-8 text-2xl">Links</h3>
           <div className="footer_bottom flex flex-col md:flex-row">
             <div className="links mr-24">
@@ -91,8 +100,8 @@ const Footer = () => {
               </p>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
       <div className="absolute bottom-8 right-8 md:right-12">
         <Link
           to="top_scroll"
@@ -101,9 +110,12 @@ const Footer = () => {
           smooth={true}
           offset={0}
           duration={500}
-          className="mr-1 cursor-pointer rounded-full py-2 transition-all duration-150"
+          className="group mr-1 cursor-pointer rounded-full py-2 transition-all duration-150"
         >
-          Top 👆
+          Top{" "}
+          <span className="duration-50 inline-block transition-all ease-linear group-hover:-translate-y-1">
+            👆
+          </span>
         </Link>
       </div>
     </motion.div>
@@ -111,7 +123,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-<span className="mr-4 inline-block transition-all  duration-100 ease-linear group-hover:translate-x-3">
-  →
-</span>;

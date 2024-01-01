@@ -1,5 +1,6 @@
 flask
 langchain
+llama_index
 openai<1.0.0
 dotenv
 pinecone

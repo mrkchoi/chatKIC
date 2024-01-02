@@ -9,7 +9,7 @@ import { Link } from "react-scroll";
 
 import MobileNav from "./MobileNav";
 
-import resume from "../files/Kenneth Choi Resume 2023.pdf";
+import resume from "../files/Kenneth Choi CV 2023.pdf";
 import sparkle_gif from "../images/sparkle_resting_v2_1ff6f6a71f2d298b1a31.gif";
 
 import "../styles/Header.css";

@@ -5,7 +5,7 @@ import { Link, Element } from "react-scroll";
 
 import kc_dark from "../images/kc_dark.png";
 import kc_light from "../images/kc_light.png";
-import resume from "../files/Kenneth Choi Resume 2023.pdf";
+import resume from "../files/Kenneth Choi CV 2023.pdf";
 
 const Footer = () => {
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
-import resume from "../files/Kenneth Choi Resume 2023.pdf";
+import resume from "../files/Kenneth Choi CV 2023.pdf";
 import { Link } from "react-scroll";
 
 const MobileNav = ({ setMenuOpen }) => {
